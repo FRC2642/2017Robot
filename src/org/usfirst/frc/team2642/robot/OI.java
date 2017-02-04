@@ -2,6 +2,7 @@ package org.usfirst.frc.team2642.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team2642.robot.commands.*;
 
@@ -12,17 +13,18 @@ import org.usfirst.frc.team2642.robot.commands.*;
 public class OI {
 
 	private static XboxController xBox = new XboxController(0);
-		public static XboxController getxBox(){
-			return xBox;
-		}
+	Button xBoxA = new JoystickButton(xBox, 1);
+	Button xBoxB = new JoystickButton(xBox, 2);
 	
-	
-	
-	
-	
-	
-	public OI(){
+	public static XboxController getxBox(){
+		return xBox;
+	}
 		
+	public OI(){
+		xBoxA.whenPressed(new SetCameraBoilerVision(true));
+		xBoxA.whenReleased(new SetCameraBoilerVision(false));
+		xBoxB.whenPressed(new SetCameraGearVision(true));
+		xBoxB.whenReleased(new SetCameraGearVision(false));
 	}
 	
 }

@@ -1,6 +1,8 @@
 
 package org.usfirst.frc.team2642.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -22,6 +24,11 @@ public class Robot extends IterativeRobot {
 
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static OI oi;
+	
+	public static UsbCamera cameraBoiler;
+	public static UsbCamera cameraGear;
+	private static final int IMG_WIDTH = 320;
+	private static final int IMG_HEIGHT = 240;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -33,9 +40,38 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
+		cameraBoiler = CameraServer.getInstance().startAutomaticCapture("Boiler", RobotMap.cameraBoiler);
+		cameraGear = CameraServer.getInstance().startAutomaticCapture("Gear", RobotMap.cameraGear);
+		cameraBoiler.setResolution(IMG_WIDTH, IMG_HEIGHT);
+		cameraGear.setResolution(IMG_WIDTH, IMG_HEIGHT);
+		cameraBoiler.setFPS(10);
+		cameraGear.setFPS(10);
+		setCameraBoilerVision(false);
+		setCameraGearVision(false);
+		
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+	}
+	
+	public static void setCameraBoilerVision(boolean enabled) {
+		if(enabled) {
+			cameraBoiler.setBrightness(0);
+			cameraBoiler.setExposureManual(0);
+		} else {
+			cameraBoiler.setBrightness(30);
+			cameraBoiler.setExposureManual(30);
+		}
+	}
+	
+	public static void setCameraGearVision(boolean enabled) {
+		if(enabled) {
+			cameraGear.setBrightness(0);
+			cameraGear.setExposureManual(0);
+		} else {
+			cameraGear.setBrightness(20);
+			cameraGear.setExposureManual(20);
+		}
 	}
 
 	/**

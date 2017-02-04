@@ -8,10 +8,13 @@ package org.usfirst.frc.team2642.robot;
  */
 public class RobotMap {
 	
-	public static int frontLeft = 2,
-					  rearLeft = 0,
-					  frontRight = 1,
-					  rearRight = 3;
+	// PWM
+	public static int frontLeft = 2;
+	public static int rearLeft = 0;
+	public static int frontRight = 1;
+	public static int rearRight = 3;
 	
-	
+	// USB
+	public static int cameraBoiler = 0;
+	public static int cameraGear = 1;
 }
