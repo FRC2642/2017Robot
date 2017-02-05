@@ -33,6 +33,7 @@ public class RobotMap {
 
 	//Variables
 	public static double driveForwardOffset = 0.5;
+	public static double driveTurnOffset = 0.5;
 	public static double driveCorrection = 0.2;
 	
 	

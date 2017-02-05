@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
  *
  */
 public class DriveTrain extends PIDSubsystem {
+	private boolean isDriveStraight = true;
+	
 	public DriveTrain() {
 		super(RobotMap.driveP, RobotMap.driveI, RobotMap.driveD);
 		disable();
@@ -55,6 +57,10 @@ public class DriveTrain extends PIDSubsystem {
 		return encoderInches(getEncoderRight());
 	}
 	
+	public void setIsDriveStraight(boolean state){
+		isDriveStraight = state;
+	}
+	
 	public void driveStraight(double speed){
 		double correction = 0.0;
 		if(Math.abs(leftEncoderInches() - rightEncoderInches()) > RobotMap.driveForwardOffset){
@@ -67,18 +73,36 @@ public class DriveTrain extends PIDSubsystem {
 		drive(speed, correction);
 	}
 	
+	public void driveTurn(double speed){
+		double correctionL = 0.0;
+		double correctionR = 0.0;
+		if(Math.abs(leftEncoderInches() + rightEncoderInches()) > RobotMap.driveForwardOffset){
+			if(leftEncoderInches() > rightEncoderInches())
+				correctionR = -RobotMap.driveCorrection;
+			}else{
+				correctionL = -RobotMap.driveCorrection;
+			}
+		robotdrive.tankDrive(-speed + correctionL, speed + correctionR);
+	}
+	
     public void initDefaultCommand() {
     	setDefaultCommand(new ArcadeDrive());
     }
     
 	@Override
 	protected double returnPIDInput() {
-		return (rightEncoderInches() + leftEncoderInches()) / 2.0;
+		if(isDriveStraight)
+			return (rightEncoderInches() + leftEncoderInches()) / 2.0;
+		else
+			return (rightEncoderInches() - leftEncoderInches()) / 2.0;
 	}
 
 	@Override
 	protected void usePIDOutput(double output) {
-		driveStraight(output);		
+		if(isDriveStraight)
+			driveStraight(output);		
+		else
+			driveTurn(output);
 	}
 
 }

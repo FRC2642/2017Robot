@@ -6,31 +6,31 @@ import org.usfirst.frc.team2642.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 
-public class InchesDrive extends Command {
+public class DegreesTurnDrive extends Command {
 
-	private double inches;
+	private double degrees;
 	
-    public InchesDrive(double inches) {
+    public DegreesTurnDrive(double degrees) {
     	requires(Robot.driveTrain);
-    	this.inches = inches;
     }
 
     protected void initialize() {
+    	Robot.driveTrain.setSetpoint(degrees);
+    	Robot.driveTrain.setIsDriveStraight(false);
     	Robot.driveTrain.resetBothEncoders();
-    	Robot.driveTrain.setSetpoint(inches);
-    	Robot.driveTrain.setIsDriveStraight(true);
     	Robot.driveTrain.enable();
     }
 
     protected void execute() {}
 
     protected boolean isFinished() {
-        return Math.abs(Robot.driveTrain.getSetpoint() - Robot.driveTrain.getPosition()) > RobotMap.driveForwardOffset;
+        return Math.abs(Robot.driveTrain.getSetpoint() - Robot.driveTrain.getPosition()) > RobotMap.driveTurnOffset;
     }
 
     protected void end() {
     	Robot.driveTrain.disable();
     }
 
-    protected void interrupted() {}
+    protected void interrupted() {
+    }
 }
