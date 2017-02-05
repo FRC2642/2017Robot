@@ -13,6 +13,9 @@ public class RobotMap {
 	public static int rearLeft = 0;
 	public static int frontRight = 1;
 	public static int rearRight = 3;
+	public static int intake = 4;
+	public static int climber = 5;
+
 	
 	// USB
 	public static int cameraBoiler = 0;

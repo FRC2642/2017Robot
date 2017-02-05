@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team2642.robot.commands.*;
+import org.usfirst.frc.team2642.robot.commands.gear.SetCameraGearVision;
+import org.usfirst.frc.team2642.robot.commands.shooter.SetCameraBoilerVision;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -28,4 +30,3 @@ public class OI {
 	}
 	
 }
-	

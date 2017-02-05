@@ -25,6 +25,8 @@ import org.usfirst.frc.team2642.robot.subsystems.*;
 public class Robot extends IterativeRobot {
 
 	public static final DriveTrain driveTrain = new DriveTrain();
+	public static final Climber climber = new Climber();
+	public static final Intake intake = new Intake();
 	public static OI oi;
 	
 	public static UsbCamera cameraBoiler;
