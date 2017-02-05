@@ -17,4 +17,29 @@ public class RobotMap {
 	// USB
 	public static int cameraBoiler = 0;
 	public static int cameraGear = 1;
+	
+	
+	//DIO
+	public static int lEncoder1 = 0;
+	public static int lEncoder2 = 1;
+	public static int rEncoder1 = 2;
+	public static int rEncoder2 = 3;
+	
+	
+	//PID
+	public static double driveP = 1.0;
+	public static double driveI = 0.0;
+	public static double driveD = 0.0;
+
+	//Variables
+	public static double driveForwardOffset = 0.5;
+	public static double driveCorrection = 0.2;
+	
+	
+	
+	
+	
 }
+
+
+
