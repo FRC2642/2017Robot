@@ -14,15 +14,17 @@ import org.usfirst.frc.team2642.robot.commands.shooter.SetCameraBoilerVision;
  */
 public class OI {
 
+	//Xbox Controller on USB port 0
 	private static XboxController xBox = new XboxController(0);
-	Button xBoxA = new JoystickButton(xBox, 1);
-	Button xBoxB = new JoystickButton(xBox, 2);
+	Button xBoxA = new JoystickButton(xBox, 1);	//A Button
+	Button xBoxB = new JoystickButton(xBox, 2);	//B Button
 	
 	public static XboxController getxBox(){
 		return xBox;
 	}
 		
 	public OI(){
+		//Changes the vision mode
 		xBoxA.whenPressed(new SetCameraBoilerVision(true));
 		xBoxA.whenReleased(new SetCameraBoilerVision(false));
 		xBoxB.whenPressed(new SetCameraGearVision(true));

@@ -24,18 +24,23 @@ import org.usfirst.frc.team2642.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 
+	//Subsystems
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Climber climber = new Climber();
 	public static final Intake intake = new Intake();
+	public static final GearEjector gearEjector = new GearEjector();
 	public static OI oi;
 	
+	//Cameras
 	public static UsbCamera cameraBoiler;
 	public static UsbCamera cameraGear;
 	private static final int IMG_WIDTH = 320;
 	private static final int IMG_HEIGHT = 240;
 	
+	//Default Gear Settings
 	private VisionThread gearVisionThread;
 	public static final Object gearImgLock = new Object();
+	//TODO set these to the maximum double value
 	public static double gearCenterXL = 10000.0;
 	public static double gearCenterYL = 10000.0;
 	public static double gearTargetAreaL = 100000.0;
@@ -45,6 +50,7 @@ public class Robot extends IterativeRobot {
 	public static double gearCenterX = 100000.0;
 	public static double gearCenterY = 100000.0;
 
+	//Default Boiler Settings
 	private VisionThread boilerVisionThread;
 	public static final Object boilerImgLock = new Object();
 	public static double boilerCenterX = 0.0;
@@ -61,30 +67,41 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
+		
+		//Camera instances
 		cameraBoiler = CameraServer.getInstance().startAutomaticCapture("Boiler", RobotMap.cameraBoiler);
 		cameraGear = CameraServer.getInstance().startAutomaticCapture("Gear", RobotMap.cameraGear);
+		//Camera resolutions
 		cameraBoiler.setResolution(IMG_WIDTH, IMG_HEIGHT);
 		cameraGear.setResolution(IMG_WIDTH, IMG_HEIGHT);
+		//Camera FPS
 		cameraBoiler.setFPS(10);
 		cameraGear.setFPS(10);
+		//Turns off vision by default
 		setCameraBoilerVision(false);
 		setCameraGearVision(false);
 		
-		gearVisionThread = new VisionThread(cameraGear, new GearPipeline(),pegpipeline -> {
+		//Vision Thread for gear vision tracking
+		gearVisionThread = new VisionThread(cameraGear, new GearPipeline(),pegpipeline -> {		//Sets the pipeline
 			if(pegpipeline.filterContoursOutput().size() >= 2){
+				//Draws rectangles around the vision targets
 				Rect gearRecL = Imgproc.boundingRect(pegpipeline.filterContoursOutput().get(0));
 				Rect gearRecR = Imgproc.boundingRect(pegpipeline.filterContoursOutput().get(1));
+				//Synchronized function
 				synchronized (gearImgLock) {
+					//Finds the center and area of each rectangle
 					gearCenterXL = 2*gearRecL.x + gearRecL.width - (IMG_WIDTH/2);
 					gearCenterYL = 2*gearRecL.y + gearRecL.height - (IMG_HEIGHT/2);
 					gearTargetAreaL = gearRecL.area();
 					gearCenterXR = 2*gearRecR.x + gearRecR.width - (IMG_WIDTH/2);
 					gearCenterYR = 2*gearRecR.y + gearRecR.height - (IMG_HEIGHT/2);
 					gearTargetAreaR = gearRecR.area();
+					//Finds the center between both rectangles
 					gearCenterX = gearCenterXL + gearCenterXR;
 					gearCenterY = gearCenterYL + gearCenterYR;
 				}
-			} else {
+			} else {	//Sets gear vision values to numbers that will never occur
+				//TODO Set these to the maximum double value
 				gearCenterXL = 10000.0;
 				gearCenterYL = 10000.0;
 				gearTargetAreaL = 10000.0;
@@ -95,40 +112,47 @@ public class Robot extends IterativeRobot {
 				gearCenterY = 10000.0;
 			}
 		});
-		gearVisionThread.start();
+		gearVisionThread.start();	//Starts the thread for gear vision tracking
 		
-		boilerVisionThread = new VisionThread(cameraBoiler, new BoilerPipeline(), pipeline -> {
+		
+		//Vision thread for Boiler vision tracking
+		boilerVisionThread = new VisionThread(cameraBoiler, new BoilerPipeline(), pipeline -> { //Pipeline for boiler vision
 	        if (!pipeline.filterContoursOutput().isEmpty()) {
+	        	//Creates a rectangle around all of the contours in the boiler pipeline
 	            Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
 	            synchronized (boilerImgLock) {
+	            	//Finds the center of the boiler vision targets
 	                boilerCenterX = 2*r.x + r.width - (IMG_WIDTH/2);
 	                boilerCenterY = 2*r.y + r.height - (IMG_HEIGHT/2);
 	                boilerCenterTargetArea = r.area();
 	            }
 	        }
 	    });
-		boilerVisionThread.start();
+		boilerVisionThread.start();	//Starts the thread for boiler tracking
+		
 		
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 	}
 	
+	//Changes camera mode for the boiler camera
 	public static void setCameraBoilerVision(boolean enabled) {
-		if(enabled) {
+		if(enabled) {	//Vision Mode
 			cameraBoiler.setBrightness(0);
 			cameraBoiler.setExposureManual(0);
-		} else {
+		} else {		//Driving Mode
 			cameraBoiler.setBrightness(30);
 			cameraBoiler.setExposureManual(35);
 		}
 	}
 	
+	//Changes camera mode for the gear camera
 	public static void setCameraGearVision(boolean enabled) {
-		if(enabled) {
+		if(enabled) {	//Vision Mode
 			cameraGear.setBrightness(30);
 			cameraGear.setExposureManual(0);
-		} else {
+		} else {		//Drive Mode
 			cameraGear.setBrightness(10);
 			cameraGear.setExposureManual(20);
 		}
@@ -201,6 +225,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		
+		//Sends general vision information to the Smart Dashboard
 		SmartDashboard.putNumber("Boiler Center X", boilerCenterX);
 		SmartDashboard.putNumber("Boiler Center Y", boilerCenterY);
 		SmartDashboard.putNumber("Gear Center X", gearCenterX);

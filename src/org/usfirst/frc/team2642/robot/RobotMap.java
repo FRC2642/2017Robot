@@ -8,33 +8,43 @@ package org.usfirst.frc.team2642.robot;
  */
 public class RobotMap {
 	
-	// PWM
+	//PWM
+	//RobotDrive
 	public static int frontLeft = 2;
 	public static int rearLeft = 0;
 	public static int frontRight = 1;
 	public static int rearRight = 3;
+	//Other
 	public static int intake = 4;
 	public static int climber = 5;
+	public static int gearEjector = 6;
+
 
 	
 	// USB
+	//Cameras
 	public static int cameraBoiler = 0;
 	public static int cameraGear = 1;
 	
 	
 	//DIO
+	//Encoders
 	public static int lEncoder1 = 0;
 	public static int lEncoder2 = 1;
 	public static int rEncoder1 = 2;
 	public static int rEncoder2 = 3;
+	//Other
+	public static int gearEjectorSwitch = 4;
 	
 	
 	//PID
+	//Drive
 	public static double driveP = 1.0;
 	public static double driveI = 0.0;
 	public static double driveD = 0.0;
 
 	//Variables
+	//Drive
 	public static double driveForwardOffset = 0.5;
 	public static double driveTurnOffset = 0.5;
 	public static double driveCorrection = 0.2;
