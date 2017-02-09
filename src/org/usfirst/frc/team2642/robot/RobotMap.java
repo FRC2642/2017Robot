@@ -48,8 +48,9 @@ public class RobotMap {
 	public static double driveForwardOffset = 0.5;
 	public static double driveTurnOffset = 0.5;
 	public static double driveCorrection = 0.2;
-	
-	
+
+	public static final int IMG_WIDTH = 320;
+	public static final int IMG_HEIGHT = 240;
 	
 	
 	

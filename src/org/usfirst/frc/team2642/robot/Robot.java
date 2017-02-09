@@ -34,21 +34,12 @@ public class Robot extends IterativeRobot {
 	//Cameras
 	public static UsbCamera cameraBoiler;
 	public static UsbCamera cameraGear;
-	private static final int IMG_WIDTH = 320;
-	private static final int IMG_HEIGHT = 240;
+	public static final int IMG_WIDTH = 320;
+	public static final int IMG_HEIGHT = 240;
 	
 	//Default Gear Settings
 	private VisionThread gearVisionThread;
-	public static final Object gearImgLock = new Object();
-	//TODO set these to the maximum double value
-	public static double gearCenterXL = 10000.0;
-	public static double gearCenterYL = 10000.0;
-	public static double gearTargetAreaL = 100000.0;
-	public static double gearCenterXR = 100000.0;
-	public static double gearCenterYR = 100000.0;
-	public static double gearTargetAreaR = 100000.0;
-	public static double gearCenterX = 100000.0;
-	public static double gearCenterY = 100000.0;
+	private GearTargetInfo gearTargetInfo = new GearTargetInfo();
 
 	//Default Boiler Settings
 	private VisionThread boilerVisionThread;
@@ -82,34 +73,9 @@ public class Robot extends IterativeRobot {
 		setCameraGearVision(false);
 		
 		//Vision Thread for gear vision tracking
-		gearVisionThread = new VisionThread(cameraGear, new GearPipeline(),pegpipeline -> {		//Sets the pipeline
-			if(pegpipeline.filterContoursOutput().size() >= 2){
-				//Draws rectangles around the vision targets
-				Rect gearRecL = Imgproc.boundingRect(pegpipeline.filterContoursOutput().get(0));
-				Rect gearRecR = Imgproc.boundingRect(pegpipeline.filterContoursOutput().get(1));
-				//Synchronized function
-				synchronized (gearImgLock) {
-					//Finds the center and area of each rectangle
-					gearCenterXL = 2*gearRecL.x + gearRecL.width - (IMG_WIDTH/2);
-					gearCenterYL = 2*gearRecL.y + gearRecL.height - (IMG_HEIGHT/2);
-					gearTargetAreaL = gearRecL.area();
-					gearCenterXR = 2*gearRecR.x + gearRecR.width - (IMG_WIDTH/2);
-					gearCenterYR = 2*gearRecR.y + gearRecR.height - (IMG_HEIGHT/2);
-					gearTargetAreaR = gearRecR.area();
-					//Finds the center between both rectangles
-					gearCenterX = gearCenterXL + gearCenterXR;
-					gearCenterY = gearCenterYL + gearCenterYR;
-				}
-			} else {	//Sets gear vision values to numbers that will never occur
-				//TODO Set these to the maximum double value
-				gearCenterXL = 10000.0;
-				gearCenterYL = 10000.0;
-				gearTargetAreaL = 10000.0;
-				gearCenterXR = 10000.0;
-				gearCenterYR = 10000.0;
-				gearTargetAreaR = 10000.0;
-				gearCenterX = 10000.0;
-				gearCenterY = 10000.0;
+		gearVisionThread = new VisionThread(cameraGear, new GearPipeline(),gearpipeline -> {		//Sets the pipeline
+			synchronized (GearTargetInfo.gearImgLock) {
+				gearTargetInfo.setFilterContours(gearpipeline.filterContoursOutput());
 			}
 		});
 		gearVisionThread.start();	//Starts the thread for gear vision tracking
@@ -146,7 +112,7 @@ public class Robot extends IterativeRobot {
 			cameraBoiler.setExposureManual(35);
 		}
 	}
-	
+
 	//Changes camera mode for the gear camera
 	public static void setCameraGearVision(boolean enabled) {
 		if(enabled) {	//Vision Mode
@@ -228,8 +194,9 @@ public class Robot extends IterativeRobot {
 		//Sends general vision information to the Smart Dashboard
 		SmartDashboard.putNumber("Boiler Center X", boilerCenterX);
 		SmartDashboard.putNumber("Boiler Center Y", boilerCenterY);
-		SmartDashboard.putNumber("Gear Center X", gearCenterX);
-		SmartDashboard.putNumber("Gear Center Y", gearCenterY);
+		SmartDashboard.putNumber("Gear Center X", GearTargetInfo.getGearCenterX());
+		SmartDashboard.putNumber("Gear Center Y", GearTargetInfo.getGearCenterY());
+		SmartDashboard.putNumber("Number of Gear Targets", GearTargetInfo.getNumTargets());
 	}
 
 	/**
