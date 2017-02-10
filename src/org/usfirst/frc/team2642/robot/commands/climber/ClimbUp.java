@@ -12,6 +12,7 @@ public class ClimbUp extends Command {
 
     protected void initialize() {}
 
+    //Climbs up the rope at full speed
     protected void execute() {
     	Robot.climber.climbUp();
     }

@@ -13,6 +13,7 @@ public class IntakeIn extends Command {
 
     protected void initialize() {}
 
+    //Takes in balls
     protected void execute() {
     	Robot.intake.intakeOn();
     }

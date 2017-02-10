@@ -1,6 +1,5 @@
 package org.usfirst.frc.team2642.robot.subsystems;
 
-import org.usfirst.frc.team2642.robot.Robot;
 import org.usfirst.frc.team2642.robot.RobotMap;
 import org.usfirst.frc.team2642.robot.commands.drive.ArcadeDrive;
 

@@ -12,6 +12,7 @@ public class ClimbStop extends Command {
 
     protected void initialize() {}
 
+    //Stops the climber
     protected void execute() {
     	Robot.climber.climbStop();
     }

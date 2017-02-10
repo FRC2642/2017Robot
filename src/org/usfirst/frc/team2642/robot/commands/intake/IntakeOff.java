@@ -15,6 +15,7 @@ public class IntakeOff extends Command {
 
     protected void initialize() {}
 
+    //Turns off intake
     protected void execute() {
     	Robot.intake.intakeOff();
     }

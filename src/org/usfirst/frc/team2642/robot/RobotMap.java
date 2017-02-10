@@ -19,7 +19,11 @@ public class RobotMap {
 	public static int climber = 5;
 	public static int gearEjector = 6;
 
-
+	//Analog
+	public static int gearUltra;
+	public static int turretPot;
+	
+	//Relay
 	
 	// USB
 	//Cameras
@@ -42,13 +46,17 @@ public class RobotMap {
 	public static double driveP = 1.0;
 	public static double driveI = 0.0;
 	public static double driveD = 0.0;
+	//Turret
+	public static double turretP;	//TODO assign values to these when the turret system is created
+	public static double turretI;
+	public static double turretD;
 
 	//Variables
 	//Drive
 	public static double driveForwardOffset = 0.5;
 	public static double driveTurnOffset = 0.5;
 	public static double driveCorrection = 0.2;
-
+	//Image resoulution constants
 	public static final int IMG_WIDTH = 320;
 	public static final int IMG_HEIGHT = 240;
 	

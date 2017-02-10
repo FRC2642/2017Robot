@@ -11,6 +11,7 @@ public class SetCameraBoilerVision extends InstantCommand {
 	
 	private boolean state;
 
+	//Sets the current vision mode for the boilerCamera
     public SetCameraBoilerVision(boolean state) {
         super();
         this.state = state;

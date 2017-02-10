@@ -12,6 +12,7 @@ public class GrabRope extends Command {
 
     protected void initialize() {}
 
+    //Runs slowly to grab the rope
     protected void execute() {
     	Robot.climber.grabRope();
     }

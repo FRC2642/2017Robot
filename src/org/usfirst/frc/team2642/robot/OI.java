@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team2642.robot.commands.*;
 import org.usfirst.frc.team2642.robot.commands.climber.* ;
 import org.usfirst.frc.team2642.robot.commands.gear.*;
 import org.usfirst.frc.team2642.robot.commands.intake.*;

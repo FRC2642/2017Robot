@@ -12,6 +12,7 @@ public class ClimbDown extends Command {
 
     protected void initialize() {}
 
+    //Reverses the direction of the climber
     protected void execute() {
     	Robot.climber.climbBack();
     }

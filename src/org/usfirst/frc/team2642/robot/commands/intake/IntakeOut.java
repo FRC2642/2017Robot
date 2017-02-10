@@ -12,6 +12,7 @@ public class IntakeOut extends Command {
 
     protected void initialize() {}
 
+    //Slowly runs the intake in reverse
     protected void execute() {
     	Robot.intake.intakeStuck();
     }

@@ -74,7 +74,7 @@ public class Robot extends IterativeRobot {
 		
 		//Vision Thread for gear vision tracking
 		gearVisionThread = new VisionThread(cameraGear, new GearPipeline(),gearpipeline -> {		//Sets the pipeline
-			synchronized (GearTargetInfo.gearImgLock) {
+			synchronized (GearTargetInfo.gearImgLock) {		//Synchronizes on an abstract static object of the GearTargetInfo class
 				gearTargetInfo.setFilterContours(gearpipeline.filterContoursOutput());
 			}
 		});
@@ -86,7 +86,7 @@ public class Robot extends IterativeRobot {
 	        if (!pipeline.filterContoursOutput().isEmpty()) {
 	        	//Creates a rectangle around all of the contours in the boiler pipeline
 	            Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
-	            synchronized (boilerImgLock) {
+	            synchronized (boilerImgLock) {		//TODO switch this to an object
 	            	//Finds the center of the boiler vision targets
 	                boilerCenterX = 2*r.x + r.width - (IMG_WIDTH/2);
 	                boilerCenterY = 2*r.y + r.height - (IMG_HEIGHT/2);
@@ -130,9 +130,7 @@ public class Robot extends IterativeRobot {
 	 * the robot is disabled.
 	 */
 	@Override
-	public void disabledInit() {
-
-	}
+	public void disabledInit() {}
 
 	@Override
 	public void disabledPeriodic() {

@@ -11,6 +11,7 @@ public class SetCameraGearVision extends InstantCommand {
 	
 	private boolean state;
 
+	//Changes the vision mode for the gear camera
     public SetCameraGearVision(boolean state) {
         super();
         this.state = state;
