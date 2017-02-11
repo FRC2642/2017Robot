@@ -17,9 +17,8 @@ public class EjectGear extends Command {
     	Robot.gearEjector.eject();
     }
 
-    //Stops when the switch is triggered
     protected boolean isFinished() {
-        return Robot.gearEjector.getSwitchState();
+        return false;
     }
 
     protected void end() {}
