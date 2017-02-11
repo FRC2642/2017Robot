@@ -37,8 +37,9 @@ public class RobotMap {
 	public static int lEncoder2 = 1;
 	public static int rEncoder1 = 2;
 	public static int rEncoder2 = 3;
+	public static int gearEncoder1 = 4;
+	public static int gearEncoder2 = 5;
 	//Other
-	public static int gearEjectorSwitch = 4;
 	
 	
 	//PID
@@ -50,12 +51,21 @@ public class RobotMap {
 	public static double turretP;	//TODO assign values to these when the turret system is created
 	public static double turretI;
 	public static double turretD;
+	//Gear
+	public static double gearP;
+	public static double gearI;
+	public static double gearD;
+	
+	
 
 	//Variables
 	//Drive
 	public static double driveForwardOffset = 0.5;
 	public static double driveTurnOffset = 0.5;
 	public static double driveCorrection = 0.2;
+	//Gear
+	public static double gearTwoRev = 100;
+	public static double gearOffset = 0.1;
 	//Image resoulution constants
 	public static final int IMG_WIDTH = 320;
 	public static final int IMG_HEIGHT = 240;

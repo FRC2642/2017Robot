@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2642.robot.commands.gear;
 
 import org.usfirst.frc.team2642.robot.Robot;
+import org.usfirst.frc.team2642.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -10,18 +11,24 @@ public class EjectGear extends Command {
     	requires(Robot.gearEjector);
     }
 
-    protected void initialize() {}
-
-    //Ejects the gear
-    protected void execute() {
-    	Robot.gearEjector.eject();
+    protected void initialize() {
+    	Robot.gearEjector.resetEncoder();
+    	Robot.gearEjector.setSetpoint(RobotMap.gearTwoRev);
+    	Robot.gearEjector.enable();
+    	
     }
+
+    protected void execute() {}
 
     protected boolean isFinished() {
-        return false;
+        return Math.abs(Robot.gearEjector.getSetpoint() - Robot.gearEjector.getPosition()) < RobotMap.gearOffset;
     }
 
-    protected void end() {}
+    protected void end() {
+    	Robot.gearEjector.disable();
+    	Robot.gearEjector.resetEncoder();
+    	Robot.gearEjector.setSetpoint(0);
+    }
 
     protected void interrupted() {}
 }
