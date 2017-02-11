@@ -2,12 +2,12 @@ package org.usfirst.frc.team2642.robot;
 
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.Rect;
+import org.opencv.imgproc.Imgproc;
 
 import java.util.ArrayList;
 
 public class BoilerTargetInfo {
 	private static int numTargets = 0;
-	private static ArrayList<MatOfPoint> filterContours;
 	private static Rect boilerRec1;
 	private static final Object boilerImgLock = new Object();
 	private static double boilerCenterX = Double.MAX_VALUE;
@@ -16,9 +16,9 @@ public class BoilerTargetInfo {
 
 	public static void setFilterContours(ArrayList<MatOfPoint> matOfPoints) {
 		synchronized (boilerImgLock) {
-			filterContours = matOfPoints;
-			if (filterContours.size() >= 1) {
+			if (matOfPoints.size() >= 1) {
 				numTargets = 1;
+				boilerRec1 = Imgproc.boundingRect(matOfPoints.get(0));
 				boilerCenterX = 2 * boilerRec1.x + boilerRec1.width - (RobotMap.IMG_WIDTH / 2);
 				boilerCenterY = 2 * boilerRec1.y + boilerRec1.height - (RobotMap.IMG_HEIGHT / 2);
 				boilerCenterTargetArea = boilerRec1.area();

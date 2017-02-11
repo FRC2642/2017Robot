@@ -43,7 +43,7 @@ public class BoilerPipeline implements VisionPipeline {
 		// Step HSV_Threshold0:
 		Mat hsvThresholdInput = cvResizeOutput;
 		double[] hsvThresholdHue = {17.805755395683452, 98.60068259385666};
-		double[] hsvThresholdSaturation = {167.4010791366906, 255.0};
+		double[] hsvThresholdSaturation = {127.4010791366906, 255.0};
 		double[] hsvThresholdValue = {61.915467625899275, 178.8481228668942};
 		hsvThreshold(hsvThresholdInput, hsvThresholdHue, hsvThresholdSaturation, hsvThresholdValue, hsvThresholdOutput);
 

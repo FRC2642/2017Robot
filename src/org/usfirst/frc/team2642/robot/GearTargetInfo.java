@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class GearTargetInfo {
 	private static int numTargets = 0;
-	private static ArrayList<MatOfPoint> filterContours;
 	private static Rect gearRec1;
 	private static Rect gearRec2;
 	private static final Object gearImgLock = new Object();
@@ -55,8 +54,7 @@ public class GearTargetInfo {
 
 	public static void setFilterContours(ArrayList<MatOfPoint> matOfPoints) {
 		synchronized (gearImgLock) {
-			filterContours = matOfPoints;
-			if (filterContours.size() >= 2) {
+			if (matOfPoints.size() >= 2) {
 				numTargets = 2;
 				gearRec1 = Imgproc.boundingRect(matOfPoints.get(0));
 				gearRec2 = Imgproc.boundingRect(matOfPoints.get(1));
@@ -66,7 +64,7 @@ public class GearTargetInfo {
 				//Finds the center between both rectangles
 				setTargetCenter(true);
 
-			} else if (filterContours.size() >= 1) {
+			} else if (matOfPoints.size() >= 1) {
 				numTargets = 1;
 				gearRec1 = Imgproc.boundingRect(matOfPoints.get(0));
 				//Finds the center and area of each rectangle
