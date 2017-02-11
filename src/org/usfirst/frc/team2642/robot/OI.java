@@ -51,7 +51,7 @@ public class OI {
 		}
 		
 		//Gear
-		xBoxY.whenPressed(new EjectGear());
+		xBoxY.toggleWhenPressed(new EjectGear());
 		
 		//Intake
 		xBoxA.whenPressed(new IntakeIn());
