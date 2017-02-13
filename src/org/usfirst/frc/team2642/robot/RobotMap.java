@@ -16,8 +16,7 @@ public class RobotMap {
 	public static int rearRight = 3;
 	//Other
 	public static int intake = 4;
-	public static int climber = 5;
-	public static int gearEjector = 6;
+	public static int gearEjector = 5;
 
 	//Analog
 	public static int gearUltra;
