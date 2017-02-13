@@ -50,4 +50,27 @@ public class GearEjector extends PIDSubsystem {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
     }
+    
+    public void climbUp(){
+		gearEjector.set(1.0);
+	}
+	
+	//Grab the rope
+	public void grabRope(){
+		gearEjector.set(0.5);
+	}
+	
+	//Stop climbing
+	public void climbStop(){
+		gearEjector.set(0.0);
+	}
+	
+	//Go back down the rope
+	public void climbBack(){
+		gearEjector.set(-0.25);
+	}
+    
+    
+    
+    
 }

@@ -26,7 +26,6 @@ public class Robot extends IterativeRobot {
 
 	//Subsystems
 	public static final DriveTrain driveTrain = new DriveTrain();
-	public static final Climber climber = new Climber();
 	public static final Intake intake = new Intake();
 	public static final GearEjector gearEjector = new GearEjector();
 	public static OI oi;

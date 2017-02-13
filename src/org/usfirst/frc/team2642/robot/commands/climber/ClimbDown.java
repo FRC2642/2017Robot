@@ -7,14 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ClimbDown extends Command {
 
     public ClimbDown() {
-    	requires(Robot.climber);
+    	requires(Robot.gearEjector);
     }
 
     protected void initialize() {}
 
     //Reverses the direction of the climber
     protected void execute() {
-    	Robot.climber.climbBack();
+    	Robot.gearEjector.climbBack();
     }
 
     protected boolean isFinished() {

@@ -7,14 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ClimbStop extends Command {
 
     public ClimbStop() {
-    	requires(Robot.climber);
+    	requires(Robot.gearEjector);
     }
 
     protected void initialize() {}
 
     //Stops the climber
     protected void execute() {
-    	Robot.climber.climbStop();
+    	Robot.gearEjector.climbStop();
     }
 
     protected boolean isFinished() {

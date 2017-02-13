@@ -7,14 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 public class GrabRope extends Command {
 
     public GrabRope() {
-    	requires(Robot.climber);
+    	requires(Robot.gearEjector);
     }
 
     protected void initialize() {}
 
     //Runs slowly to grab the rope
     protected void execute() {
-    	Robot.climber.grabRope();
+    	Robot.gearEjector.grabRope();
     }
 
     protected boolean isFinished() {

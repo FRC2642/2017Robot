@@ -7,14 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ClimbUp extends Command {
 
     public ClimbUp() {
-    	requires(Robot.climber);
+    	requires(Robot.gearEjector);
     }
 
     protected void initialize() {}
 
     //Climbs up the rope at full speed
     protected void execute() {
-    	Robot.climber.climbUp();
+    	Robot.gearEjector.climbUp();
     }
 
     protected boolean isFinished() {
