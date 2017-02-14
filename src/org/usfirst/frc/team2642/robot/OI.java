@@ -51,7 +51,7 @@ public class OI {
 		}
 		
 		//Gear
-		xBoxY.toggleWhenPressed(new EjectGear());
+		xBoxY.whenPressed(new EjectGear());
 		
 		//Intake
 		xBoxA.whenPressed(new IntakeIn());
@@ -59,6 +59,13 @@ public class OI {
 		xBoxX.whenPressed(new IntakeOut());
 		xBoxX.whenReleased(new IntakeOff());
 		;
+		
+		
+		//Shooter
+		xBoxStart.toggleWhenPressed(new ShooterOff());
+		xBoxSelect.whileHeld(new ShooterStuck());
+		xBoxY.whileHeld(new Shoot());
+		
 		
 	}
 	

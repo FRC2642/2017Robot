@@ -14,13 +14,17 @@ public class RobotMap {
 	public static int rearLeft = 0;
 	public static int frontRight = 1;
 	public static int rearRight = 3;
+	//Shooter
+	public static int flywheel = 6;
+	public static int shooterControl = 7;
+	public static int shooterRotate;
 	//Other
 	public static int intake = 4;
 	public static int gearEjector = 5;
 
 	//Analog
-	public static int gearUltra;
-	public static int turretPot;
+	public static int gearUltra = 3;
+	public static int turretPot = 0;
 	
 	//Relay
 	
@@ -28,7 +32,6 @@ public class RobotMap {
 	//Cameras
 	public static int cameraBoiler = 0;
 	public static int cameraGear = 1;
-	
 	
 	//DIO
 	//Encoders
@@ -40,22 +43,19 @@ public class RobotMap {
 	public static int gearEncoder2 = 5;
 	//Other
 	
-	
 	//PID
 	//Drive
 	public static double driveP = 1.0;
 	public static double driveI = 0.0;
 	public static double driveD = 0.0;
 	//Turret
-	public static double turretP;	//TODO assign values to these when the turret system is created
-	public static double turretI;
-	public static double turretD;
+	public static double turretP = 0.0;
+	public static double turretI = 0.0;
+	public static double turretD = 0.0;
 	//Gear
-	public static double gearP;
-	public static double gearI;
-	public static double gearD;
-	
-	
+	public static double gearP = 0.0;
+	public static double gearI = 0.0;
+	public static double gearD = 0.0;
 
 	//Variables
 	//Drive
@@ -68,6 +68,9 @@ public class RobotMap {
 	//Image resoulution constants
 	public static final int IMG_WIDTH = 320;
 	public static final int IMG_HEIGHT = 240;
+	//Turret Potentiometer Limits
+	public static double turretUpper = 0.8;
+	public static double turretLower = 0.2;
 	
 	
 	

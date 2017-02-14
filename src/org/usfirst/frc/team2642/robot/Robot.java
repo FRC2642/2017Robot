@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.vision.VisionThread;
 
-import org.opencv.core.Rect;
-import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team2642.robot.subsystems.*;
 
 /**
@@ -28,6 +26,8 @@ public class Robot extends IterativeRobot {
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Intake intake = new Intake();
 	public static final GearEjector gearEjector = new GearEjector();
+	public static final Shooter shooter = new Shooter();
+	public static final Turret turret = new Turret();
 	public static OI oi;
 
 	//Cameras

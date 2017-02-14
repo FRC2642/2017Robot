@@ -2,7 +2,7 @@ package org.usfirst.frc.team2642.robot.subsystems;
 
 import org.usfirst.frc.team2642.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Intake extends Subsystem {
 	
 	//Intake motor
-	Spark intake = new Spark(RobotMap.intake);
+	Victor intake = new Victor(RobotMap.intake);
 	
 	//Take in
 	public void intakeOn(){
