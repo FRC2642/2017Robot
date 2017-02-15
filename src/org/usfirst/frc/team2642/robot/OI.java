@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2642.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -30,6 +31,15 @@ public class OI {
 	
 	public static XboxController getxBox(){
 		return xBox;
+	}
+	
+	private static Joystick auxillary = new Joystick(1);
+	Button trigger = new JoystickButton(auxillary, 1);
+	Button sideTrigger = new JoystickButton(auxillary, 2);
+	
+	
+	public static Joystick getAux(){
+		return auxillary;
 	}
 		
 	public OI(){
@@ -65,6 +75,7 @@ public class OI {
 		xBoxStart.toggleWhenPressed(new ShooterOff());
 		xBoxSelect.whileHeld(new ShooterStuck());
 		xBoxY.whileHeld(new Shoot());
+		sideTrigger.whileHeld(new ManualTurret());
 		
 		
 	}
