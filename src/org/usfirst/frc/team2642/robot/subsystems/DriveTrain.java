@@ -19,10 +19,8 @@ public class DriveTrain extends PIDSubsystem {
 	}
 
 	//Drive
-	RobotDrive robotdrive = new RobotDrive(RobotMap.frontLeft,
-										   RobotMap.rearLeft,
-										   RobotMap.frontRight,
-										   RobotMap.rearRight);		
+	RobotDrive robotdrive = new RobotDrive(RobotMap.left,
+										   RobotMap.right);
 	
 	//Encoders for drive
 	Encoder lEncoder = new Encoder(RobotMap.lEncoder1, RobotMap.lEncoder2, false, Encoder.EncodingType.k4X);

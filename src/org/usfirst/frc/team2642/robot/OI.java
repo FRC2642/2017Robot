@@ -67,17 +67,14 @@ public class OI {
 		xBoxA.whenPressed(new IntakeIn());
 		xBoxA.whenReleased(new IntakeOff());
 		xBoxX.whenPressed(new IntakeOut());
-		xBoxX.whenReleased(new IntakeOff());
-		;
-		
+		xBoxX.whenReleased(new IntakeOff());;;
 		
 		//Shooter
-		xBoxStart.toggleWhenPressed(new ShooterOff());
+		xBoxB.toggleWhenPressed(new ShooterOff());
 		xBoxSelect.whileHeld(new ShooterStuck());
 		xBoxY.whileHeld(new Shoot());
 		sideTrigger.whileHeld(new ManualTurret());
-		
-		
+		sideTrigger.whileHeld(new ManualShootSpeed());
 	}
 	
 }
