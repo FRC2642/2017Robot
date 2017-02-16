@@ -10,10 +10,8 @@ public class RobotMap {
 	
 	//PWM
 	//RobotDrive
-	public static int frontLeft = 2;
-	public static int rearLeft = 0;
-	public static int frontRight = 1;
-	public static int rearRight = 3;
+	public static int left = 0;
+	public static int right = 1;
 	//Shooter
 	public static int flywheel = 6;
 	public static int shooterControl = 7;
@@ -25,7 +23,8 @@ public class RobotMap {
 	//Analog
 	public static int gearUltra = 3;
 	public static int turretPot = 0;
-	
+	public static int gearPot = 1;
+
 	//Relay
 	
 	// USB
@@ -39,8 +38,6 @@ public class RobotMap {
 	public static int lEncoder2 = 1;
 	public static int rEncoder1 = 2;
 	public static int rEncoder2 = 3;
-	public static int gearEncoder1 = 4;
-	public static int gearEncoder2 = 5;
 	//Other
 	
 	//PID
@@ -65,15 +62,15 @@ public class RobotMap {
 	//Gear
 	public static double gearTwoRev = 100;
 	public static double gearOffset = 0.1;
+	public static double gearTimeout = 1.5;
+	public static double gearRest = 0.0;
+
 	//Image resoulution constants
 	public static final int IMG_WIDTH = 320;
 	public static final int IMG_HEIGHT = 240;
 	//Turret Potentiometer Limits
 	public static double turretUpper = 0.8;
 	public static double turretLower = 0.2;
-	
-	
-	
 }
 
 

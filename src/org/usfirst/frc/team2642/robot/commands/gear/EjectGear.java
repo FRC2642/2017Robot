@@ -12,22 +12,22 @@ public class EjectGear extends Command {
     }
 
     protected void initialize() {
-    	Robot.gearEjector.resetEncoder();
-    	Robot.gearEjector.setSetpoint(RobotMap.gearTwoRev);
-    	Robot.gearEjector.enable();
-    	
+    	Robot.gearEjector.disable();
+    	setTimeout(RobotMap.gearTimeout);
     }
 
-    protected void execute() {}
+    protected void execute() {
+    	Robot.gearEjector.eject(1.0);
+    }
 
     protected boolean isFinished() {
-        return Math.abs(Robot.gearEjector.getSetpoint() - Robot.gearEjector.getPosition()) < RobotMap.gearOffset;
+    	return isTimedOut();
     }
 
     protected void end() {
-    	Robot.gearEjector.disable();
-    	Robot.gearEjector.resetEncoder();
-    	Robot.gearEjector.setSetpoint(0);
+    	Robot.gearEjector.setSetpoint(RobotMap.gearRest);
+    	Robot.gearEjector.enable();
+
     }
 
     protected void interrupted() {}

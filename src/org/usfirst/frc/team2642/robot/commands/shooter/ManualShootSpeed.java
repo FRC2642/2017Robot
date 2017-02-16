@@ -1,5 +1,8 @@
 package org.usfirst.frc.team2642.robot.commands.shooter;
 
+import org.usfirst.frc.team2642.robot.OI;
+import org.usfirst.frc.team2642.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -18,6 +21,7 @@ public class ManualShootSpeed extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.shooter.setSpeed((OI.getAux().getThrottle()+1.0)/2);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2642.robot.subsystems;
 
 import org.usfirst.frc.team2642.robot.RobotMap;
+import org.usfirst.frc.team2642.robot.commands.shooter.ShooterOff;
 import org.usfirst.frc.team2642.robot.commands.shooter.SpinUp;
 
 import edu.wpi.first.wpilibj.Victor;
@@ -30,8 +31,13 @@ public class Shooter extends Subsystem {
 		shooterControl.set(0);
 	}
 	
+	public void setSpeed(double speed){
+		flywheel.set(speed);
+		shooterControl.set(.5);
+	}
+	
     public void initDefaultCommand() {
-    	setDefaultCommand(new SpinUp());
+    	setDefaultCommand(new ShooterOff());
     }
 }
 
