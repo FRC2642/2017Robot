@@ -13,12 +13,12 @@ public class RobotMap {
 	public static int left = 0;
 	public static int right = 1;
 	//Shooter
-	public static int flywheel = 6;
-	public static int shooterControl = 7;
-	public static int shooterRotate;
+	public static int flywheel = 4;
+	public static int shooterControl = 5;
+	public static int shooterRotate = 6;
 	//Other
-	public static int intake = 4;
-	public static int gearEjector = 5;
+	public static int intake = 2;
+	public static int gearEjector = 3;
 
 	//Analog
 	public static int gearUltra = 3;
