@@ -15,7 +15,7 @@ public class Intake extends Subsystem {
 	
 	//Take in
 	public void intakeOn(){
-		intake.set(1.0);	
+		intake.set(-1.0);	
 	}
 	
 	//OFf
@@ -25,7 +25,7 @@ public class Intake extends Subsystem {
 	
 	//Backwards (just in case)
 	public void intakeStuck(){
-		intake.set(-0.25);
+		intake.set(0.25);
 	}
 
     public void initDefaultCommand() {}

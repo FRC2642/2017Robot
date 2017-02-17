@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2642.robot;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -36,6 +37,10 @@ public class OI {
 	private static Joystick auxillary = new Joystick(1);
 	Button trigger = new JoystickButton(auxillary, 1);
 	Button sideTrigger = new JoystickButton(auxillary, 2);
+	Button side7 = new JoystickButton(auxillary, 7);
+	Button side9 = new JoystickButton(auxillary, 9);
+	Button side11 = new JoystickButton(auxillary, 11);
+
 	
 	
 	public static Joystick getAux(){
@@ -50,15 +55,12 @@ public class OI {
 		xBoxRB.whenReleased(new SetCameraGearVision(false));
 		
 		//Climber
-		if(xBox.getRawAxis(4) < -.85){
-			new ClimbUp();
-		}else if(xBox.getRawAxis(4) < -.5){
-			new GrabRope();
-		}else if(xBox.getRawAxis(4) > .7){
-			new ClimbDown();
-		}else{
-			new ClimbStop();
-		}
+		side11.whenReleased(new ClimbStop());
+		side9.whileHeld(new GrabRope());
+		side9.whenReleased(new ClimbStop());
+		side7.whileHeld(new ClimbUp());
+		side7.whenReleased(new ClimbStop());
+		
 		
 		//Gear
 		xBoxY.whenPressed(new EjectGear());

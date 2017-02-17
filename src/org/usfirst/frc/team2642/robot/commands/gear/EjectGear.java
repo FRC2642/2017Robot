@@ -25,6 +25,7 @@ public class EjectGear extends Command {
     }
 
     protected void end() {
+    	Robot.gearEjector.eject(0);
     	Robot.gearEjector.setSetpoint(RobotMap.gearRest);
     	Robot.gearEjector.enable();
 

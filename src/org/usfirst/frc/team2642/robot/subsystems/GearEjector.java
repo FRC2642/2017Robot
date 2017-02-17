@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2642.robot.subsystems;
 
+import org.usfirst.frc.team2642.robot.Robot;
 import org.usfirst.frc.team2642.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
@@ -20,7 +21,8 @@ public class GearEjector extends PIDSubsystem {
     }
 
     public void eject(double speed){
-		gearEjector.set(speed);
+    	if(speed >= 0.0)
+    		gearEjector.set(-speed);
 	}
 	
     public void initDefaultCommand() {}
@@ -29,10 +31,12 @@ public class GearEjector extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-        return gearEncoder.pidGet();
+    	System.out.println(gearEncoder.get()*5);
+        return gearEncoder.get()*5;
     }
 
     protected void usePIDOutput(double output) {
+//    	System.out.println(output);
     	eject(output);
     	
         // Use output to drive your system, like a motor
@@ -40,23 +44,20 @@ public class GearEjector extends PIDSubsystem {
     }
     
     public void climbUp(){
-		gearEjector.set(1.0);
+		eject(1.0);
 	}
 	
 	//Grab the rope
 	public void grabRope(){
-		gearEjector.set(0.5);
+		eject(0.5);
 	}
 	
 	//Stop climbing
 	public void climbStop(){
-		gearEjector.set(0.0);
+		eject(0.0);
 	}
 	
-	//Go back down the rope
-	public void climbBack(){
-		gearEjector.set(-0.25);
-	}
+
     
     
     

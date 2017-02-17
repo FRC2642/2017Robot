@@ -50,7 +50,7 @@ public class RobotMap {
 	public static double turretI = 0.0;
 	public static double turretD = 0.0;
 	//Gear
-	public static double gearP = 0.0;
+	public static double gearP = 0.1;
 	public static double gearI = 0.0;
 	public static double gearD = 0.0;
 
@@ -63,7 +63,7 @@ public class RobotMap {
 	public static double gearTwoRev = 100;
 	public static double gearOffset = 0.1;
 	public static double gearTimeout = 1.5;
-	public static double gearRest = 0.0;
+	public static double gearRest = 0.5;
 
 	//Image resoulution constants
 	public static final int IMG_WIDTH = 320;
