@@ -1,6 +1,5 @@
 package org.usfirst.frc.team2642.robot;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -78,5 +77,4 @@ public class OI {
 		sideTrigger.whileHeld(new ManualTurret());
 		sideTrigger.whileHeld(new ManualShootSpeed());
 	}
-	
 }

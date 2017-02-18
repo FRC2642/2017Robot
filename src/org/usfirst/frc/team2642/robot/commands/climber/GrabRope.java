@@ -10,7 +10,9 @@ public class GrabRope extends Command {
     	requires(Robot.gearEjector);
     }
 
-    protected void initialize() {}
+    protected void initialize() {
+    	Robot.gearEjector.disable();
+    }
 
     //Runs slowly to grab the rope
     protected void execute() {

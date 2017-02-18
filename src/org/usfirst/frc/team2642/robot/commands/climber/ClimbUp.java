@@ -10,7 +10,9 @@ public class ClimbUp extends Command {
     	requires(Robot.gearEjector);
     }
 
-    protected void initialize() {}
+    protected void initialize() {
+    	Robot.gearEjector.disable();
+    }
 
     //Climbs up the rope at full speed
     protected void execute() {

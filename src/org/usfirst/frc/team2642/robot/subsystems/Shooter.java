@@ -2,8 +2,6 @@ package org.usfirst.frc.team2642.robot.subsystems;
 
 import org.usfirst.frc.team2642.robot.RobotMap;
 import org.usfirst.frc.team2642.robot.commands.shooter.ShooterOff;
-import org.usfirst.frc.team2642.robot.commands.shooter.SpinUp;
-
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 

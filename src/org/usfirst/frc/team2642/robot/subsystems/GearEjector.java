@@ -1,10 +1,8 @@
 package org.usfirst.frc.team2642.robot.subsystems;
 
-import org.usfirst.frc.team2642.robot.Robot;
 import org.usfirst.frc.team2642.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
@@ -23,6 +21,8 @@ public class GearEjector extends PIDSubsystem {
     public void eject(double speed){
     	if(speed >= 0.0)
     		gearEjector.set(-speed);
+    	else
+    		gearEjector.set(speed);
 	}
 	
     public void initDefaultCommand() {}
