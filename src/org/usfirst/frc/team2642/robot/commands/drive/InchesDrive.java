@@ -25,11 +25,10 @@ public class InchesDrive extends Command {
     protected void execute() {}
 
     protected boolean isFinished() {
-        return Math.abs(Robot.driveTrain.getSetpoint() - Robot.driveTrain.getPosition()) > RobotMap.driveForwardOffset;
+        return Math.abs(Robot.driveTrain.getSetpoint() - Robot.driveTrain.getPosition()) < RobotMap.driveForwardOffset;
     }
 
     protected void end() {
-    	Robot.driveTrain.stop();
     	Robot.driveTrain.disable();
     }
 

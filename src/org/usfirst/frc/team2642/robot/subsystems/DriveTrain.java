@@ -50,11 +50,12 @@ public class DriveTrain extends PIDSubsystem {
 	
 	//Returns a given encoder value as inches
 	public double encoderInches(double encoderValue){
-		return encoderValue;
+		return encoderValue / 12.9;
 	}
 	
 	//Returns the left encoder distance as inches
 	public double leftEncoderInches(){
+		System.out.println(encoderInches(getEncoderLeft()));
 		return encoderInches(getEncoderLeft());
 	}
 	
@@ -81,7 +82,7 @@ public class DriveTrain extends PIDSubsystem {
 				correction = RobotMap.driveCorrection;
 			}
 		}
-		drive(speed, correction);	//Drives with the correction value
+		drive(-speed, correction);	//Drives with the correction value
 	}
 	
 	//Turns in autonomous with PID control

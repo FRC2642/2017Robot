@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team2642.robot.commands.climber.* ;
+import org.usfirst.frc.team2642.robot.commands.drive.*;
 import org.usfirst.frc.team2642.robot.commands.gear.*;
 import org.usfirst.frc.team2642.robot.commands.intake.*;
 import org.usfirst.frc.team2642.robot.commands.shooter.*;
@@ -39,6 +40,7 @@ public class OI {
 	Button side7 = new JoystickButton(auxillary, 7);
 	Button side9 = new JoystickButton(auxillary, 9);
 	Button side11 = new JoystickButton(auxillary, 11);
+	Button top5 = new JoystickButton(auxillary, 5);
 
 	
 	
@@ -76,5 +78,8 @@ public class OI {
 		xBoxY.whileHeld(new Shoot());
 		sideTrigger.whileHeld(new ManualTurret());
 		sideTrigger.whileHeld(new ManualShootSpeed());
+		
+		
+		top5.whenPressed(new InchesDrive(60.0));
 	}
 }
