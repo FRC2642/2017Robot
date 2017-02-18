@@ -4,9 +4,8 @@ import org.usfirst.frc.team2642.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
-/**
- *
- */
+
+
 public class SetHoodPosition extends InstantCommand {
 
 	double position;
@@ -16,7 +15,6 @@ public class SetHoodPosition extends InstantCommand {
     	this.position = position;
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.hood.setHood(position);
     }

@@ -55,15 +55,19 @@ public class DriveTrain extends PIDSubsystem {
 	
 	//Returns the left encoder distance as inches
 	public double leftEncoderInches(){
-		System.out.println(encoderInches(getEncoderLeft()));
 		return encoderInches(getEncoderLeft());
 	}
 	
-	//Returns the right encoder distance as inches
 	public double rightEncoderInches(){
 		return encoderInches(getEncoderRight());
 	}
 	
+	public void setDegrees(double degrees){
+		setSetpoint(degrees * -0.1788);
+	}
+	
+	
+	//Returns the right encoder distance as inches
 	
 	//Changes the autonomous driving type
 	public void setIsDriveStraight(boolean state){
@@ -96,8 +100,9 @@ public class DriveTrain extends PIDSubsystem {
 			}else{
 				correctionL = -RobotMap.driveCorrection;
 			}
-		robotdrive.tankDrive(-speed + correctionL, speed + correctionR);	//Drives as a tank drive to correct turning drift
+		robotdrive.tankDrive(-speed - correctionL, speed - correctionR);	//Drives as a tank drive to correct turning drift
 	}
+	
 	
 	//Drives off of a controller by default
     public void initDefaultCommand() {

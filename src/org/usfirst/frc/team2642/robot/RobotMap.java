@@ -43,7 +43,7 @@ public class RobotMap {
 	
 	//PID
 	//Drive
-	public static double driveP = 0.1;
+	public static double driveP = 0.02;
 	public static double driveI = 0.0;
 	public static double driveD = 0.01;
 	//Turret
@@ -57,9 +57,9 @@ public class RobotMap {
 
 	//Variables
 	//Drive
-	public static double driveForwardOffset = 1.0;
-	public static double driveTurnOffset = 0.5;
-	public static double driveCorrection = 0.2;
+	public static double driveForwardOffset = 0.25;
+	public static double driveTurnOffset = 10.0;
+	public static double driveCorrection = -0.2;
 	//Gear
 	public static double gearTwoRev = 100;
 	public static double gearOffset = 0.1;

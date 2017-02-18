@@ -16,7 +16,7 @@ public class DegreesTurnDrive extends Command {
     }
  
     protected void initialize() {
-    	Robot.driveTrain.setSetpoint(degrees);
+    	Robot.driveTrain.setDegrees(degrees);
     	Robot.driveTrain.setIsDriveStraight(false);
     	Robot.driveTrain.resetBothEncoders();
     	Robot.driveTrain.enable();
@@ -25,11 +25,10 @@ public class DegreesTurnDrive extends Command {
     protected void execute() {}
 
     protected boolean isFinished() {
-        return Math.abs(Robot.driveTrain.getSetpoint() - Robot.driveTrain.getPosition()) > RobotMap.driveTurnOffset;
+        return Math.abs(Robot.driveTrain.getSetpoint() - Robot.driveTrain.getPosition()) < RobotMap.driveTurnOffset;
     }
 
     protected void end() {
-    	Robot.driveTrain.stop();
     	Robot.driveTrain.disable();
     }
 

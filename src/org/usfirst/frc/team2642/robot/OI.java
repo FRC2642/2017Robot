@@ -40,6 +40,8 @@ public class OI {
 	Button side7 = new JoystickButton(auxillary, 7);
 	Button side9 = new JoystickButton(auxillary, 9);
 	Button side11 = new JoystickButton(auxillary, 11);
+	Button top3 = new JoystickButton(auxillary, 3);
+    Button top4 = new JoystickButton(auxillary, 4);
 	Button top5 = new JoystickButton(auxillary, 5);
 
 	
@@ -75,11 +77,12 @@ public class OI {
 		//Shooter
 		xBoxB.toggleWhenPressed(new ShooterOff());
 		xBoxSelect.whileHeld(new ShooterStuck());
-		xBoxY.whileHeld(new Shoot());
+		top4.whileHeld(new Shoot());
 		sideTrigger.whileHeld(new ManualTurret());
 		sideTrigger.whileHeld(new ManualShootSpeed());
 		
 		
-		top5.whenPressed(new InchesDrive(60.0));
+		top5.whenPressed(new DegreesTurnDrive(180.0));
+		top3.whenPressed(new DegreesTurnDrive(360.0));
 	}
 }
