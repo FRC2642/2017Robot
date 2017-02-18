@@ -14,10 +14,10 @@ public class DriveTrain extends PIDSubsystem {
 	private boolean isDriveStraight = true;
 	
 	public DriveTrain() {
-		super(RobotMap.driveP, RobotMap.driveI, RobotMap.driveD);
+		super(RobotMap.driveStraightP, RobotMap.driveStraightI, RobotMap.driveStraightD);
 		disable();
 	}
-
+	
 	//Drive
 	RobotDrive robotdrive = new RobotDrive(RobotMap.left,
 										   RobotMap.right);
@@ -36,6 +36,7 @@ public class DriveTrain extends PIDSubsystem {
 	}
 	
 	public double getEncoderLeft(){
+		System.out.println(lEncoder.getDistance());
 		return lEncoder.getDistance();
 	}
 	
@@ -62,8 +63,8 @@ public class DriveTrain extends PIDSubsystem {
 		return encoderInches(getEncoderRight());
 	}
 	
-	public void setDegrees(double degrees){
-		setSetpoint(degrees * -0.1788);
+	public double setDegrees(double degrees){
+		return degrees * -0.1788;
 	}
 	
 	

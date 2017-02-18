@@ -83,6 +83,6 @@ public class OI {
 		
 		
 		top5.whenPressed(new DegreesTurnDrive(180.0));
-		top3.whenPressed(new DegreesTurnDrive(360.0));
+		top3.whenPressed(new InchesDrive(60.0));
 	}
 }
