@@ -28,6 +28,7 @@ public class Robot extends IterativeRobot {
 	public static final GearEjector gearEjector = new GearEjector();
 	public static final Shooter shooter = new Shooter();
 	public static final Turret turret = new Turret();
+	public static final Hood hood = new Hood();
 	public static OI oi;
 
 	//Cameras
