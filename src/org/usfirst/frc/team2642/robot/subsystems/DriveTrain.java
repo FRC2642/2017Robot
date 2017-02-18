@@ -31,6 +31,10 @@ public class DriveTrain extends PIDSubsystem {
 		robotdrive.arcadeDrive(-y, -x);
 	}
 	
+	public void stop(){
+		robotdrive.arcadeDrive(0, 0);
+	}
+	
 	public double getEncoderLeft(){
 		return lEncoder.getDistance();
 	}

@@ -69,7 +69,7 @@ public class OI {
 		xBoxA.whenPressed(new IntakeIn());
 		xBoxA.whenReleased(new IntakeOff());
 		xBoxX.whenPressed(new IntakeOut());
-		xBoxX.whenReleased(new IntakeOff());;;
+		xBoxX.whenReleased(new IntakeOff());
 		
 		//Shooter
 		xBoxB.toggleWhenPressed(new ShooterOff());
