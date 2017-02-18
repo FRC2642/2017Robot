@@ -14,7 +14,7 @@ public class DegreesTurnDrive extends Command {
     	requires(Robot.driveTrain);
     	this.degrees = degrees;
     }
-// ;_;
+ 
     protected void initialize() {
     	Robot.driveTrain.setSetpoint(degrees);
     	Robot.driveTrain.setIsDriveStraight(false);
@@ -29,9 +29,10 @@ public class DegreesTurnDrive extends Command {
     }
 
     protected void end() {
+    	Robot.driveTrain.stop();
     	Robot.driveTrain.disable();
     }
-//		;_;
+
     protected void interrupted() {
     }
 }

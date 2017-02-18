@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2642.robot.commands.auto;
 
+import org.usfirst.frc.team2642.robot.commands.drive.InchesDrive;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -8,6 +10,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class DriveForwardAuto extends CommandGroup {
 
     public DriveForwardAuto() {
+    	//Placeholder code
+    	addSequential(new InchesDrive(100));
+    	addSequential(new InchesDrive(-100));
+    	addSequential(new InchesDrive(100));
+    	addSequential(new InchesDrive(-100));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
