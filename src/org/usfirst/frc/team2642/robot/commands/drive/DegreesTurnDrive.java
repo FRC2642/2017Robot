@@ -15,6 +15,7 @@ public class DegreesTurnDrive extends PIDCommand {
     	super(RobotMap.driveTurnP, RobotMap.driveTurnI, RobotMap.driveTurnD);
     	requires(Robot.driveTrain);
     	this.degrees = degrees;
+    	setTimeout(Math.abs(degrees / 360.0) * 3.0);
     }
  
     protected void initialize() {
@@ -27,7 +28,7 @@ public class DegreesTurnDrive extends PIDCommand {
     }
 
     protected boolean isFinished() {
-        return Math.abs(getSetpoint() - getPosition()) < RobotMap.driveTurnOffset;
+        return Math.abs(getSetpoint() - getPosition()) < RobotMap.driveTurnOffset || isTimedOut();
     }
 
     protected void end() {
