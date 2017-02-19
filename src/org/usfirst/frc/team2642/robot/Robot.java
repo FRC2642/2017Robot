@@ -93,7 +93,7 @@ public class Robot extends IterativeRobot {
 	//Changes camera mode for the gear camera
 	public static void setCameraGearVision(boolean enabled) {
 		if (enabled) {    //Vision Mode
-			cameraGear.setBrightness(50);
+			cameraGear.setBrightness(35);
 			cameraGear.setExposureManual(0);
 		} else {        //Drive Mode
 			cameraGear.setBrightness(0);

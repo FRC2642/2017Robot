@@ -64,10 +64,11 @@ public class RobotMap {
 	public static double driveForwardOffset = 0.25;
 	public static double driveTurnOffset = 0.25;
 	public static double driveCorrection = -0.2;
-	public static double drivePegForward = -0.3;
-	public static double drivePegCorrection = 0.1;
-	public static double drivePegDefault = -0.4;
-	public static double drivePegOffset = 5;
+	public static double drivePegForward = 0.4;
+	public static double drivePegCorrection = 0.7;
+	public static double drivePegDefault = 0.5;
+	public static double drivePegOffset = 8;
+	public static double pegDistance = 10;
 	
 	//Gear
 	public static double gearTwoRev = 100;

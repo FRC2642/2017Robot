@@ -21,7 +21,7 @@ public class ArcadeDrive extends Command {
     	if(OI.getxBox().getRawAxis(3) > 0.6){
         	Robot.driveTrain.drive(OI.getxBox().getY(Hand.kLeft) * 1.1, OI.getxBox().getX(Hand.kLeft) * 1.1);
     	}else{
-    		Robot.driveTrain.drive(OI.getxBox().getY(Hand.kLeft) * 0.6, OI.getxBox().getX(Hand.kLeft) * 0.6);
+    		Robot.driveTrain.drive(OI.getxBox().getY(Hand.kLeft) * 0.6, OI.getxBox().getX(Hand.kLeft) * 0.8);
     	}
     }
 
