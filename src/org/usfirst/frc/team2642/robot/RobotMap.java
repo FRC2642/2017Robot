@@ -65,7 +65,7 @@ public class RobotMap {
 	public static double driveTurnOffset = 0.25;
 	public static double driveCorrection = -0.2;
 	public static double drivePegForward = 0.4;
-	public static double drivePegCorrection = 0.7;
+	public static double drivePegCorrection = 0.6;
 	public static double drivePegDefault = 0.5;
 	public static double drivePegOffset = 8;
 	public static double pegDistance = 10;
@@ -73,7 +73,7 @@ public class RobotMap {
 	//Gear
 	public static double gearTwoRev = 100;
 	public static double gearOffset = 0.1;
-	public static double gearTimeout = 1.5;
+	public static double gearTimeout = 1.0;
 	public static double gearRest = 0.5;
 
 	//Image resoulution constants
