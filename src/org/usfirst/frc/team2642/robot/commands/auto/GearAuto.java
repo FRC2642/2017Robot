@@ -21,8 +21,11 @@ public class GearAuto extends CommandGroup {
     	addSequential(new InchesDrive(-16.0));
     	addSequential(new EjectGear());
     	addSequential(new InchesDrive(36.0));
-    	addSequential(new DegreesTurnDrive(26.0));
-    	addSequential(new InchesDrive(54.0));
+    	addSequential(new DegreesTurnDrive(29.0));
+    	addSequential(new InchesDrive(50.0));
+    	addSequential(new Wait(1.0));
+    	addSequential(new InchesDrive(-24.0));
+    	addSequential(new DegreesTurnDrive(-70.0));
     	//addSequential(new SetCameraGearVision(false));
     }
 }
