@@ -38,18 +38,38 @@ public class OI {
 	private static Joystick auxillary = new Joystick(1);
 	Button trigger = new JoystickButton(auxillary, 1);
 	Button sideTrigger = new JoystickButton(auxillary, 2);
-	Button side7 = new JoystickButton(auxillary, 7);
-	Button side9 = new JoystickButton(auxillary, 9);
-	Button side11 = new JoystickButton(auxillary, 11);
 	Button top3 = new JoystickButton(auxillary, 3);
-    Button top4 = new JoystickButton(auxillary, 4);
+	Button top4 = new JoystickButton(auxillary, 4);
 	Button top5 = new JoystickButton(auxillary, 5);
-
-	
-	
+	Button top6 = new JoystickButton(auxillary, 6);
+	Button side7 = new JoystickButton(auxillary, 7);
+	Button side8 = new JoystickButton(auxillary, 8);
+	Button side9 = new JoystickButton(auxillary, 9);
+	Button side10 = new JoystickButton(auxillary, 10);
+	Button side11 = new JoystickButton(auxillary, 11);
+	Button side12 = new JoystickButton(auxillary, 12);
+   
 	public static Joystick getAux(){
 		return auxillary;
 	}
+	
+	private static Joystick eStop = new Joystick(2);
+	Button lSwitch = new JoystickButton(eStop, 1);
+	Button mSwitch = new JoystickButton(eStop, 2);
+	Button rSwitch = new JoystickButton(eStop, 3);
+	Button lButton = new JoystickButton(eStop, 4);
+	Button mButton = new JoystickButton(eStop, 5);
+	Button rButton = new JoystickButton(eStop, 6);
+	Button autoLeft = new JoystickButton(eStop, 7);
+	Button autoRight = new JoystickButton(eStop, 8);
+
+	
+	
+	public static Joystick geteStop() {
+		return eStop;
+	}
+	
+	
 		
 	public OI(){
 		//Changes the vision mode
@@ -86,4 +106,9 @@ public class OI {
 		top5.whenPressed(new GearAuto());
 		top3.whenPressed(new InchesDrive(60.0));
 	}
+
+
+
+
+
 }

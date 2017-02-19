@@ -2,6 +2,7 @@ package org.usfirst.frc.team2642.robot.subsystems;
 
 import org.usfirst.frc.team2642.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
@@ -13,6 +14,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class GearEjector extends PIDSubsystem {
 	Victor gearEjector = new Victor(RobotMap.gearEjector);
 	AnalogPotentiometer gearEncoder = new AnalogPotentiometer(RobotMap.gearPot);
+	AnalogInput gearUltra = new  AnalogInput(RobotMap.gearUltra);
+	
     // Initialize your subsystem here
     public GearEjector() {
 	super(RobotMap.gearP, RobotMap.gearI, RobotMap.gearD);
@@ -58,9 +61,7 @@ public class GearEjector extends PIDSubsystem {
 		eject(0.0);
 	}
 	
-
-    
-    
-    
-    
+	public double getUltraInches(){
+		return (gearUltra.getAverageVoltage() * 1000 / 9.8);
+	}
 }
