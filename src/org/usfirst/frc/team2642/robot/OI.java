@@ -83,7 +83,7 @@ public class OI {
 		sideTrigger.whileHeld(new ManualShootSpeed());
 		
 		
-		top5.whenPressed(new GearAuto());
-		top3.whenPressed(new InchesDrive(60.0));
+		top5.whenPressed(new DegreesTurnDrive(45));
+		top3.whenPressed(new GearAuto());
 	}
 }

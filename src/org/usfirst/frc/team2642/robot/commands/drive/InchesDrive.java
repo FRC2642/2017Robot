@@ -12,6 +12,7 @@ public class InchesDrive extends Command {
 	
     public InchesDrive(double inches) {
     	requires(Robot.driveTrain);
+    	setTimeout(Math.abs(inches/12) * 0.20);
     	this.inches = inches;
     }
 
@@ -25,7 +26,7 @@ public class InchesDrive extends Command {
     protected void execute() {}
 
     protected boolean isFinished() {
-        return Math.abs(Robot.driveTrain.getSetpoint() - Robot.driveTrain.getPosition()) < RobotMap.driveForwardOffset;
+        return Math.abs(Robot.driveTrain.getSetpoint() - Robot.driveTrain.getPosition()) < RobotMap.driveForwardOffset || isTimedOut();
     }
 
     protected void end() {
