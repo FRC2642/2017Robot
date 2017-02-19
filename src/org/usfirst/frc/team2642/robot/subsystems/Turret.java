@@ -9,8 +9,6 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 
 public class Turret extends PIDSubsystem {
-
-	
 	Victor shooterTurret = new Victor(RobotMap.shooterRotate);
 	static AnalogPotentiometer turretPot = new AnalogPotentiometer(RobotMap.turretPot);
 	
@@ -45,13 +43,12 @@ public class Turret extends PIDSubsystem {
     }
     
     public void moveTurret(double speed){
-    	System.out.print("Output  " + speed);
-    	System.out.println("     Pot  " + getPot());
+    	System.out.println("Output: " + speed + " Pot: " + getPot());
     	
-    	if((speed < 0) && (getPot() < RobotMap.turretUpper)){
-    		shooterTurret.set(speed);
-    	}else if((speed > 0) && (getPot() > RobotMap.turretLower)){
-    		shooterTurret.set(speed);
+    	if((speed < 0) && (getPot() > RobotMap.turretLower)){
+    		shooterTurret.set(0.5*speed);
+    	}else if((speed > 0) && (getPot() < RobotMap.turretUpper)){
+    		shooterTurret.set(0.5*speed);
     	}else{
     		shooterTurret.set(0.0);
     	}

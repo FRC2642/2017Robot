@@ -99,8 +99,10 @@ public class OI {
 		xBoxB.toggleWhenPressed(new ShooterOff());
 		xBoxSelect.whileHeld(new ShooterStuck());
 		top4.whileHeld(new Shoot());
-		sideTrigger.whileHeld(new ManualTurret());
-		sideTrigger.whileHeld(new ManualShootSpeed());
+		ManualTurret manualTurret; 
+		sideTrigger.whenPressed(manualTurret = new ManualTurret());
+		sideTrigger.whenReleased(manualTurret);
+//		sideTrigger.whileHeld(new ManualShootSpeed());
 		
 		
 		top5.whenPressed(new GearAuto());
