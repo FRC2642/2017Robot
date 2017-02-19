@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team2642.robot.commands.auto.AimTurret;
+import org.usfirst.frc.team2642.robot.commands.auto.FeederGear;
 import org.usfirst.frc.team2642.robot.commands.auto.GearBoilerAuto;
 import org.usfirst.frc.team2642.robot.commands.auto.MiddleGear;
 import org.usfirst.frc.team2642.robot.commands.auto.PlaceGear;
@@ -118,6 +119,7 @@ public class OI {
 		side8.whileHeld(new Shoot());
 		
 		lButton.whenPressed(new MiddleGear());
+		mButton.whenPressed(new FeederGear());
 		
 		
 	}
