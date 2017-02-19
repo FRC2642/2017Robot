@@ -13,15 +13,15 @@ public class Shooter extends Subsystem {
 	Victor shooterControl = new Victor(RobotMap.shooterControl);
 	
 	public void spinUp(){
-		flywheel.set(1.0);
+		flywheel.set(-1.0);
 	}
 	public void shoot(){
-		shooterControl.set(1.0);
+		shooterControl.set(-1.0);
 	}
 
 	public void stuck(){
-		flywheel.set(-0.5);
-		shooterControl.set(-1.0);
+		flywheel.set(0.5);
+		shooterControl.set(1.0);
 	}
 	
 	public void off(){

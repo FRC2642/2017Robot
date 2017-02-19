@@ -109,6 +109,11 @@ public class OI {
 		top5.whenPressed(new GearAuto());
 		top3.whenPressed(new InchesDrive(60.0));
 		top4.whenPressed(new AimTurret());
+		
+		side8.whileHeld(new Shoot());
+		side8.whileHeld(new Shoot());
+		
+		
 	}
 
 
