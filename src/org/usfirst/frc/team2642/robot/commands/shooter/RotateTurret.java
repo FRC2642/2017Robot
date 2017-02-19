@@ -19,29 +19,21 @@ public class RotateTurret extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.turret.setSetpoint(0);
+    	Robot.turret.enable();
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	Robot.turret.moveTurret(-OI.getxBox().getX(Hand.kRight));
-    	System.out.println("X Value: " + Robot.turret.returnPIDInput());
-    	
-    	if(OI.getxBox().getYButton()){
-    		Robot.turret.enable();
-    	}else{
-    		Robot.turret.disable();
-    	}
-    	
-
-    }
+    protected void execute() {}
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Math.abs(Robot.turret.getPosition() - Robot.turret.getSetpoint()) < 2;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.turret.disable();
     }
 
     // Called when another command which requires one or more of the same
