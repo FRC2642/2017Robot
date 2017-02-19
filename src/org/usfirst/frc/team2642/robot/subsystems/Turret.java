@@ -46,11 +46,11 @@ public class Turret extends PIDSubsystem {
     
     public void moveTurret(double speed){
     	System.out.print("Output  " + speed);
-    	System.out.println("     Pot  " + turretPot.get());
+    	System.out.println("     Pot  " + getPot());
     	
-    	if((speed < 0) && (turretPot.get() < RobotMap.turretUpper)){
+    	if((speed < 0) && (getPot() < RobotMap.turretUpper)){
     		shooterTurret.set(speed);
-    	}else if((speed > 0) && (turretPot.get() > RobotMap.turretLower)){
+    	}else if((speed > 0) && (getPot() > RobotMap.turretLower)){
     		shooterTurret.set(speed);
     	}else{
     		shooterTurret.set(0.0);

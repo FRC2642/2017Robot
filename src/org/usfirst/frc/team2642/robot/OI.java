@@ -73,10 +73,10 @@ public class OI {
 		
 	public OI(){
 		//Changes the vision mode
-		xBoxLB.whenPressed(new SetCameraBoilerVision(true));
-		xBoxLB.whenReleased(new SetCameraBoilerVision(false));
+//		xBoxLB.whenPressed(new SetCameraBoilerVision(true));
+//		xBoxLB.whenReleased(new SetCameraBoilerVision(false));
 		xBoxRB.whenPressed(new SetCameraGearVision(true));
-		xBoxRB.whenReleased(new SetCameraGearVision(false));
+//		xBoxRB.whenReleased(new SetCameraGearVision(false));
 		
 		//Climber
 		side11.whenReleased(new ClimbStop());

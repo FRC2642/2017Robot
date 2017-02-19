@@ -12,13 +12,15 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveAtPeg extends Command {
 
-    public DriveAtPeg() {
+	double timeout;
+	
+    public DriveAtPeg(double timeout) {
     	requires(Robot.gearEjector);
     	requires(Robot.driveTrain);
     }
 
     protected void initialize() {
-    	new SetCameraGearVision(true);
+    	setTimeout(timeout);
     }
 
     
@@ -39,12 +41,11 @@ public class DriveAtPeg extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.gearEjector.getUltraInches() < 8;
+        return (Robot.gearEjector.getUltraInches() < 8) || isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	new SetCameraGearVision(false);
     }
 
     // Called when another command which requires one or more of the same

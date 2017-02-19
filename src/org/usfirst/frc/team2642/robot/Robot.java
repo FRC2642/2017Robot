@@ -44,6 +44,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		SmartDashboard.putString("Code Version", "0.0.0");
 		oi = new OI();
 
 		//Camera instances
@@ -172,6 +173,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Gear Center X", GearTargetInfo.getGearCenterX());
 		SmartDashboard.putNumber("Gear Center Y", GearTargetInfo.getGearCenterY());
 		SmartDashboard.putNumber("Number of Gear Targets", GearTargetInfo.getNumTargets());
+		SmartDashboard.putNumber("Potentiometer", turret.getPot());
+		SmartDashboard.putNumber("Ultrasonic Inches", gearEjector.getUltraInches());
 	}
 
 	/**
