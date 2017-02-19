@@ -5,6 +5,7 @@ import org.usfirst.frc.team2642.robot.RobotMap;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -31,7 +32,7 @@ public class GearEjector extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-    	System.out.println(gearEncoder.get()*5);
+    	SmartDashboard.putNumber("Gear Encoder", gearEncoder.get()*5);
         return gearEncoder.get()*5;
     }
 

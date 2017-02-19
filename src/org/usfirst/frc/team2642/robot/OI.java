@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team2642.robot.commands.auto.GearAuto;
 import org.usfirst.frc.team2642.robot.commands.climber.* ;
 import org.usfirst.frc.team2642.robot.commands.drive.*;
 import org.usfirst.frc.team2642.robot.commands.gear.*;
@@ -82,7 +83,7 @@ public class OI {
 		sideTrigger.whileHeld(new ManualShootSpeed());
 		
 		
-		top5.whenPressed(new DegreesTurnDrive(180.0));
+		top5.whenPressed(new GearAuto());
 		top3.whenPressed(new InchesDrive(60.0));
 	}
 }

@@ -64,7 +64,7 @@ public class DriveTrain extends PIDSubsystem {
 	}
 	
 	public double setDegrees(double degrees){
-		return degrees * -0.1788;
+		return degrees * -0.28;
 	}
 	
 	
