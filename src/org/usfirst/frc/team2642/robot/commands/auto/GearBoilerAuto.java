@@ -11,9 +11,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class GearAuto extends CommandGroup {
+public class GearBoilerAuto extends CommandGroup {
 
-    public GearAuto() {
+    public GearBoilerAuto() {
     	addSequential(new SetCameraGearVision(true));
     	addSequential(new InchesDrive(-70));
     	addSequential(new DegreesTurnDrive(55));

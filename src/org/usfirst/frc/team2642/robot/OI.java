@@ -6,7 +6,9 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team2642.robot.commands.auto.AimTurret;
-import org.usfirst.frc.team2642.robot.commands.auto.GearAuto;
+import org.usfirst.frc.team2642.robot.commands.auto.GearBoilerAuto;
+import org.usfirst.frc.team2642.robot.commands.auto.MiddleGear;
+import org.usfirst.frc.team2642.robot.commands.auto.PlaceGear;
 import org.usfirst.frc.team2642.robot.commands.climber.* ;
 import org.usfirst.frc.team2642.robot.commands.drive.*;
 import org.usfirst.frc.team2642.robot.commands.gear.*;
@@ -74,19 +76,20 @@ public class OI {
 		
 	public OI(){
 		//Changes the vision mode
-//		xBoxLB.whenPressed(new SetCameraBoilerVision(true));
-//		xBoxLB.whenReleased(new SetCameraBoilerVision(false));
+		xBoxLB.whenPressed(new SetCameraBoilerVision(true));
+		xBoxLB.whenReleased(new SetCameraBoilerVision(false));
 		xBoxRB.whenPressed(new SetCameraGearVision(true));
-//		xBoxRB.whenReleased(new SetCameraGearVision(false));
+		xBoxRB.whenReleased(new SetCameraGearVision(false));
+		
+		//Set Drive Mode
+		xBoxStart.whenPressed(new FlipDrive());
 		
 		//Climber
-		side11.whenReleased(new ClimbStop());
 		side9.whileHeld(new GrabRope());
 		side9.whenReleased(new ClimbStop());
 		side7.whileHeld(new ClimbUp());
 		side7.whenReleased(new ClimbStop());
-		
-		
+				
 		//Gear
 		xBoxY.whenPressed(new EjectGear());
 		
@@ -106,12 +109,15 @@ public class OI {
 //		sideTrigger.whileHeld(new ManualShootSpeed());
 		
 		
-		top5.whenPressed(new GearAuto());
+		top5.whenPressed(new GearBoilerAuto());
 		top3.whenPressed(new InchesDrive(60.0));
 		top4.whenPressed(new AimTurret());
+		top6.whenPressed(new PlaceGear());
 		
 		side8.whileHeld(new Shoot());
 		side8.whileHeld(new Shoot());
+		
+		lButton.whenPressed(new MiddleGear());
 		
 		
 	}
