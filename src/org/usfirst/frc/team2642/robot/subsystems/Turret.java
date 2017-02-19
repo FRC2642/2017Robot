@@ -35,7 +35,7 @@ public class Turret extends PIDSubsystem {
     }
     
     protected void usePIDOutput(double output) {
-    	moveTurret(output);
+    	moveTurret(-output);
     }
     
     public static double getPot(){

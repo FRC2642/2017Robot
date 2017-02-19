@@ -28,7 +28,7 @@ public class RotateTurret extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Math.abs(Robot.turret.getPosition() - Robot.turret.getSetpoint()) < 2;
+        return Math.abs(Robot.turret.getPosition() - Robot.turret.getSetpoint()) < 5;
     }
 
     // Called once after isFinished returns true

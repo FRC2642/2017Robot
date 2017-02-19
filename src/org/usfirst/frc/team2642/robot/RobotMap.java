@@ -51,9 +51,9 @@ public class RobotMap {
 	public static double driveTurnD = 0.0005;
 	
 	//Turret
-	public static double turretP = 0.0;
+	public static double turretP = 0.025;
 	public static double turretI = 0.0;
-	public static double turretD = 0.0;
+	public static double turretD = 0.0002;
 	//Gear
 	public static double gearP = 0.1;
 	public static double gearI = 0.0;
