@@ -21,7 +21,9 @@ public class Shoot extends Command {
         return false;
     }
 
-    protected void end() {}
+    protected void end() {
+    	Robot.shooter.off();
+    }
 
     protected void interrupted() {}
 }

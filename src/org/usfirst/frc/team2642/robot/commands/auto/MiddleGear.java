@@ -8,12 +8,19 @@ import org.usfirst.frc.team2642.robot.commands.gear.SetCameraGearVision;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-/**
- *
- */
 public class MiddleGear extends CommandGroup {
 
     public MiddleGear() {
+    	/*
+    	 * Autonomous mode that places a gear on the center peg and drives toward the boiler to shoot
+    	 * 
+    	 * Procedure:
+    	 * 1.Change vision to dark mode and drive toward gear peg
+    	 * 2.Enable autonomous gear tracking
+    	 * 3.Place the gear and back up
+    	 * 4.Turn and drive toward boiler
+    	 * 5.Aim the turret at the boiler and shoot
+    	 */
     	addSequential(new SetCameraGearVision(true));
     	addSequential(new InchesDrive(-36.0));
     	addSequential(new DriveAtPeg(5.0));
@@ -25,22 +32,7 @@ public class MiddleGear extends CommandGroup {
     	addSequential(new InchesDrive(96.0));
     	addSequential(new DegreesTurnDrive(-40.0));
     	addSequential(new InchesDrive(24.0));
+    	addSequential(new AimTurret());
     	addSequential(new SetCameraGearVision(false));
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
     }
 }

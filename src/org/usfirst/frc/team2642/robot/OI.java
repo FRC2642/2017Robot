@@ -15,6 +15,7 @@ import org.usfirst.frc.team2642.robot.commands.drive.*;
 import org.usfirst.frc.team2642.robot.commands.gear.*;
 import org.usfirst.frc.team2642.robot.commands.intake.*;
 import org.usfirst.frc.team2642.robot.commands.shooter.*;
+import org.usfirst.frc.team2642.robot.subsystems.Shooter;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -76,11 +77,13 @@ public class OI {
 	
 		
 	public OI(){
-		//Changes the vision mode
-		xBoxLB.whenPressed(new SetCameraBoilerVision(true));
-		xBoxLB.whenReleased(new SetCameraBoilerVision(false));
-		xBoxRB.whenPressed(new SetCameraGearVision(true));
-		xBoxRB.whenReleased(new SetCameraGearVision(false));
+		//Teleop targeting
+		rSwitch.whenPressed(new SetCameraBoilerVision(true));
+		rSwitch.whileHeld(new RotateTurret());	//TODO check to see if this works (keeps targeting even when pushed)
+		rSwitch.whenReleased(new SetCameraBoilerVision(false));
+		mSwitch.whenPressed(new SetCameraGearVision(true));
+		mSwitch.whenPressed(new DriveAtPeg(3.0));
+		mSwitch.whenReleased(new SetCameraGearVision(false));
 		
 		//Set Drive Mode
 		xBoxStart.whenPressed(new FlipDrive());
@@ -92,34 +95,33 @@ public class OI {
 		side7.whenReleased(new ClimbStop());
 				
 		//Gear
-		xBoxY.whenPressed(new EjectGear());
+		top6.whenPressed(new PlaceGear());
+		top4.whenPressed(new EjectGear());
 		
 		//Intake
-		xBoxA.whenPressed(new IntakeIn());
-		xBoxA.whenReleased(new IntakeOff());
-		xBoxX.whenPressed(new IntakeOut());
-		xBoxX.whenReleased(new IntakeOff());
+		trigger.whenPressed(new IntakeIn());
+		trigger.whenReleased(new IntakeOff());
+		side12.whenPressed(new IntakeOut());
+		side12.whenReleased(new IntakeOff());
 		
 		//Shooter
-		xBoxB.toggleWhenPressed(new ShooterOff());
+		xBoxRB.toggleWhenPressed(new Shoot());
 		xBoxSelect.whileHeld(new ShooterStuck());
-//		top4.whileHeld(new Shoot());
-//		ManualTurret manualTurret; 
-//		sideTrigger.whenPressed(manualTurret = new ManualTurret());
-//		sideTrigger.whenReleased(manualTurret);
+		top5.toggleWhenPressed(new Shoot());
 //		sideTrigger.whileHeld(new ManualShootSpeed());
 		
+		//Turret
+		ManualTurret manualTurret; 
+		sideTrigger.whenPressed(manualTurret = new ManualTurret());
+		sideTrigger.whenReleased(manualTurret);
+		top3.whenPressed(new AimTurret());
 		
-		top5.whenPressed(new GearBoilerAuto());
-		top3.whenPressed(new InchesDrive(60.0));
-		top4.whenPressed(new AimTurret());
-		top6.whenPressed(new PlaceGear());
+		//Auto
+		lButton.whenPressed(new GearBoilerAuto());
+		mButton.whenPressed(new MiddleGear());
+		rButton.whenPressed(new FeederGear());
+		//TODO better mapping for autonomous
 		
-		side8.whileHeld(new Shoot());
-		side8.whileHeld(new Shoot());
-		
-		lButton.whenPressed(new MiddleGear());
-		mButton.whenPressed(new FeederGear());
 		
 		
 	}

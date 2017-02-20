@@ -67,9 +67,6 @@ public class DriveTrain extends PIDSubsystem {
 		return degrees * -0.26;
 	}
 	
-	
-	//Returns the right encoder distance as inches
-	
 	//Changes the autonomous driving type
 	public void setIsDriveStraight(boolean state){
 		isDriveStraight = state;

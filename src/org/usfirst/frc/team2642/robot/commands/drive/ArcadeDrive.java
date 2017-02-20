@@ -17,41 +17,42 @@ public class ArcadeDrive extends Command {
     	requires(Robot.driveTrain);
     }
 
-    protected void initialize() {
-    }
+    protected void initialize() {}
 
+    //Sets if the drive orientation is reversed
     public static void setFlip(){
     	flip = !flip;
     }
     
     protected void execute() {
+    	//Drives the robot in different orientations based on a driver button input
     	if(flip){
+    		//High speed gear in front
     		if(OI.getxBox().getRawAxis(2) > 0.6){
 	        	Robot.driveTrain.drive(-OI.getxBox().getY(Hand.kLeft) * 1.1, OI.getxBox().getX(Hand.kLeft) * 0.8);
 	    	}else{
+	    	//Low speed gear in front
 	    		Robot.driveTrain.drive(-OI.getxBox().getY(Hand.kLeft) * 0.6, OI.getxBox().getX(Hand.kLeft) * 0.8);
 	    	}
     	}
     	else{
+    		//High speed gear in front
 	    	if(OI.getxBox().getRawAxis(2) > 0.6){
 	        	Robot.driveTrain.drive(OI.getxBox().getY(Hand.kLeft) * 1.1, OI.getxBox().getX(Hand.kLeft) * 0.8);
 	    	}else{
+    		//Low speed gear in front
 	    		Robot.driveTrain.drive(OI.getxBox().getY(Hand.kLeft) * 0.6, OI.getxBox().getX(Hand.kLeft) * 0.8);
 	    	}
     	}
+    	//Low speed turning is faster because the turning was awful. High speed turning is slower because it was too sensitive
+        //#TokyoDrift
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
     }
 
-    // Called once after isFinished returns true
-    protected void end() {
-    }
+    protected void end() {}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+    protected void interrupted() {}
 }

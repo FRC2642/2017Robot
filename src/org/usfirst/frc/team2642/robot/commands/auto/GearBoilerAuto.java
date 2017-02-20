@@ -14,6 +14,20 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class GearBoilerAuto extends CommandGroup {
 
     public GearBoilerAuto() {
+    	/*
+    	 * Autonomous mode that places a gear, backs up into the hopper for balls, turns, and shoots at the boiler
+    	 * TODO add shooter
+    	 * 
+    	 * Process:
+    	 * 1.Set gear cam to dark mode
+    	 * 2.Turn and place the gear
+    	 * 3.Back up and turn
+    	 * 4.Hit hopper and wait a second
+    	 * 5.Turn, rotate turret, and shoot at boiler
+    	 * 6. ???
+    	 * 7.Profit
+    	 * 
+    	 */
     	addSequential(new SetCameraGearVision(true));
     	addSequential(new InchesDrive(-70));
     	addSequential(new DegreesTurnDrive(55));
