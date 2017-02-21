@@ -8,9 +8,9 @@ import org.usfirst.frc.team2642.robot.commands.gear.SetCameraGearVision;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class MiddleGear extends CommandGroup {
+public class BlueMiddleGear extends CommandGroup {
 
-    public MiddleGear() {
+    public BlueMiddleGear() {
     	/*
     	 * Autonomous mode that places a gear on the center peg and drives toward the boiler to shoot
     	 * 

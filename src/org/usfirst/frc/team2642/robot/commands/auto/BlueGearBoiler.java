@@ -11,9 +11,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class GearBoilerAuto extends CommandGroup {
+public class BlueGearBoiler extends CommandGroup {
 
-    public GearBoilerAuto() {
+    public BlueGearBoiler() {
     	/*
     	 * Autonomous mode that places a gear, backs up into the hopper for balls, turns, and shoots at the boiler
     	 * TODO add shooter

@@ -11,19 +11,22 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class FeederGear extends CommandGroup {
+public class RedGearBoiler extends CommandGroup {
 
-    public FeederGear() {
+    public RedGearBoiler() {
     	/*
-    	 * Autonomous to place the gear by the feeder station and prepare for gear runs
+    	 * Autonomous mode that places a gear, backs up into the hopper for balls, turns, and shoots at the boiler
+    	 * TODO add shooter
     	 * 
     	 * Process:
-    	 * 1.Set vision mode, drive to near the peg, and turn
-    	 * 2.Place the gear
-    	 * 3.Back up
-    	 * 4.Turn toward feeder station on other side
-    	 * 5.TODO add driving through most of neutral zone to get close to feeder station
-    	 * 6.TODO determine if the robot's orientation should be flipped in this auto for faster gear runs
+    	 * 1.Set gear cam to dark mode
+    	 * 2.Turn and place the gear
+    	 * 3.Back up and turn
+    	 * 4.Hit hopper and wait a second
+    	 * 5.Turn, rotate turret, and shoot at boiler
+    	 * 6. ???
+    	 * 7.Profit
+    	 * 
     	 */
     	addSequential(new SetCameraGearVision(true));
     	addSequential(new InchesDrive(-70));
@@ -32,8 +35,12 @@ public class FeederGear extends CommandGroup {
     	addSequential(new InchesDrive(-16.0));
     	addSequential(new EjectGear());
     	addSequential(new InchesDrive(36.0));
-    	addSequential(new DegreesTurnDrive(55.0));
-    	addSequential(new SetCameraGearVision(true));
-
+    	addSequential(new DegreesTurnDrive(-29.0));
+    	addSequential(new InchesDrive(50.0));
+    	addSequential(new Wait(1.5));
+    	addSequential(new InchesDrive(-18.0));
+    	addSequential(new DegreesTurnDrive(70.0));
+    	addSequential(new AimTurret());
+    	addSequential(new SetCameraGearVision(false));
     }
 }

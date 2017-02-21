@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team2642.robot.commands.auto.AimTurret;
-import org.usfirst.frc.team2642.robot.commands.auto.FeederGear;
-import org.usfirst.frc.team2642.robot.commands.auto.GearBoilerAuto;
-import org.usfirst.frc.team2642.robot.commands.auto.MiddleGear;
+import org.usfirst.frc.team2642.robot.commands.auto.BlueFeederGear;
+import org.usfirst.frc.team2642.robot.commands.auto.BlueGearBoiler;
+import org.usfirst.frc.team2642.robot.commands.auto.BlueMiddleGear;
 import org.usfirst.frc.team2642.robot.commands.auto.PlaceGear;
 import org.usfirst.frc.team2642.robot.commands.climber.* ;
 import org.usfirst.frc.team2642.robot.commands.drive.*;
@@ -97,6 +97,7 @@ public class OI {
 		
 		//Intake
 		trigger.toggleWhenPressed(new IntakeIn());
+		xBoxA.whileHeld(new IntakeIn());
 		side12.whenPressed(new IntakeOut());
 		side12.whenReleased(new IntakeOff());
 		
@@ -114,9 +115,9 @@ public class OI {
 		top3.whenPressed(new AimTurret());
 		
 		//Auto
-		lButton.whenPressed(new GearBoilerAuto());
-		mButton.whenPressed(new MiddleGear());
-		rButton.whenPressed(new FeederGear());
+		lButton.whenPressed(new BlueGearBoiler());
+		mButton.whenPressed(new BlueMiddleGear());
+		rButton.whenPressed(new BlueFeederGear());
 		//TODO better mapping for autonomous
 		
 		
