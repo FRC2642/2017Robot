@@ -68,13 +68,9 @@ public class OI {
 	Button autoLeft = new JoystickButton(eStop, 7);
 	Button autoRight = new JoystickButton(eStop, 8);
 
-	
-	
 	public static Joystick geteStop() {
 		return eStop;
 	}
-	
-	
 		
 	public OI(){
 		//Teleop targeting
@@ -97,15 +93,16 @@ public class OI {
 		//Gear
 		top6.whenPressed(new PlaceGear());
 		top4.whenPressed(new EjectGear());
+		xBoxY.whenPressed(new EjectGear());
 		
 		//Intake
-		trigger.whenPressed(new IntakeIn());
-		trigger.whenReleased(new IntakeOff());
+		trigger.toggleWhenPressed(new IntakeIn());
 		side12.whenPressed(new IntakeOut());
 		side12.whenReleased(new IntakeOff());
 		
 		//Shooter
-		xBoxRB.toggleWhenPressed(new Shoot());
+		xBoxRB.whileHeld(new Shoot());
+		xBoxLB.toggleWhenPressed(new SpinUp());
 		xBoxSelect.whileHeld(new ShooterStuck());
 		top5.toggleWhenPressed(new Shoot());
 //		sideTrigger.whileHeld(new ManualShootSpeed());
