@@ -3,6 +3,7 @@ package org.usfirst.frc.team2642.robot;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -37,7 +38,10 @@ public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
-
+		
+	
+	boolean isBlue;
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -74,6 +78,13 @@ public class Robot extends IterativeRobot {
 		boilerVisionThread.start(); 
 
 
+		DriverStation.Alliance color = DriverStation.getInstance().getAlliance();
+		if(color == DriverStation.Alliance.Blue){
+			isBlue = true;
+		}else{
+			isBlue = false;
+		}
+		
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
@@ -128,8 +139,38 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
-
+		
+		/*
+		if(isBlue){
+			if(){
+				new BlueGearBoiler();
+			}else if(){
+				new BlueMiddleGear();
+			}else if(){
+				new BlueFeederGear();
+			}else if(){
+				InchesDrive(80.0);
+			}else{
+				autonomousCommand = null;
+			}
+		}
+		if(!isBlue){
+			if(){
+				new RedGearBoiler();
+			}else if(){
+				new RedMiddleGear();
+			}else if(){
+				new RedFeederGear();
+			}else if(){
+				InchesDrive(80.0);
+			}else{
+				autonomousCommand = null;
+			}
+		}
+		*/
+		
+		
+		
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
