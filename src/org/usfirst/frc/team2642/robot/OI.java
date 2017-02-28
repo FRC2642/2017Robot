@@ -5,17 +5,12 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team2642.robot.commands.auto.AimTurret;
-import org.usfirst.frc.team2642.robot.commands.auto.BlueFeederGear;
-import org.usfirst.frc.team2642.robot.commands.auto.BlueGearBoiler;
-import org.usfirst.frc.team2642.robot.commands.auto.BlueMiddleGear;
 import org.usfirst.frc.team2642.robot.commands.auto.PlaceGear;
 import org.usfirst.frc.team2642.robot.commands.climber.* ;
 import org.usfirst.frc.team2642.robot.commands.drive.*;
 import org.usfirst.frc.team2642.robot.commands.gear.*;
 import org.usfirst.frc.team2642.robot.commands.intake.*;
 import org.usfirst.frc.team2642.robot.commands.shooter.*;
-import org.usfirst.frc.team2642.robot.subsystems.Shooter;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -43,10 +38,10 @@ public class OI {
 	private static Joystick auxillary = new Joystick(1);
 	Button trigger = new JoystickButton(auxillary, 1);
 	Button sideTrigger = new JoystickButton(auxillary, 2);
-	Button top3 = new JoystickButton(auxillary, 3);
-	Button top4 = new JoystickButton(auxillary, 4);
-	Button top5 = new JoystickButton(auxillary, 5);
-	Button top6 = new JoystickButton(auxillary, 6);
+	Button top3 = new JoystickButton(auxillary, 3);		//Left bottom
+	Button top4 = new JoystickButton(auxillary, 4);		//Right bottom
+	Button top5 = new JoystickButton(auxillary, 5);		//Left top
+	Button top6 = new JoystickButton(auxillary, 6);		//Right top
 	Button side7 = new JoystickButton(auxillary, 7);
 	Button side8 = new JoystickButton(auxillary, 8);
 	Button side9 = new JoystickButton(auxillary, 9);
@@ -65,8 +60,12 @@ public class OI {
 	Button lButton = new JoystickButton(eStop, 4);
 	Button mButton = new JoystickButton(eStop, 5);
 	Button rButton = new JoystickButton(eStop, 6);
-	Button autoLeft = new JoystickButton(eStop, 7);
-	Button autoRight = new JoystickButton(eStop, 8);
+	Button lTop = new JoystickButton(eStop, 7);
+	Button rTop = new JoystickButton(eStop, 8);
+	Button dial1 = new JoystickButton(eStop, 9);
+	Button dial2 = new JoystickButton(eStop, 10);
+	Button dial3 = new JoystickButton(eStop, 11);
+	Button dial4 = new JoystickButton(eStop, 12);
 
 	public static Joystick geteStop() {
 		return eStop;
@@ -102,23 +101,23 @@ public class OI {
 		side12.whenReleased(new IntakeOff());
 		
 		//Shooter
-		xBoxRB.whileHeld(new Shoot());
-		xBoxLB.toggleWhenPressed(new SpinUp());
+//		xBoxRB.whileHeld(new Shoot());
+//		xBoxLB.toggleWhenPressed(new SpinUp());
 		xBoxSelect.whileHeld(new ShooterStuck());
-		top5.toggleWhenPressed(new Shoot());
+		top3.whileHeld(new SpinUp());
+		top5.whileHeld(new Shoot());
 //		sideTrigger.whileHeld(new ManualShootSpeed());
 		
 		//Turret
 		ManualTurret manualTurret; 
 		sideTrigger.whenPressed(manualTurret = new ManualTurret());
 		sideTrigger.whenReleased(manualTurret);
-		top3.whenPressed(new AimTurret());
+		//top3.whenPressed(new AimTurret());
 		
 		//Auto
-		lButton.whenPressed(new BlueGearBoiler());
-		mButton.whenPressed(new BlueMiddleGear());
-		rButton.whenPressed(new BlueFeederGear());
-		//TODO better mapping for autonomous
+//		lButton.whenPressed(new BlueGearBoiler());
+//		mButton.whenPressed(new BlueMiddleGear());
+//		rButton.whenPressed(new BlueFeederGear());
 		
 		
 		

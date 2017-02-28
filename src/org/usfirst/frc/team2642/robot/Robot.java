@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.vision.VisionThread;
 
+import org.usfirst.frc.team2642.robot.commands.auto.*;
+import org.usfirst.frc.team2642.robot.commands.drive.InchesDrive;
 import org.usfirst.frc.team2642.robot.subsystems.*;
 
 /**
@@ -85,6 +87,13 @@ public class Robot extends IterativeRobot {
 			isBlue = false;
 		}
 		
+		//Control for the manual alliance switcher
+//		if(oi.rTop.get()){
+//			isBlue = true;
+//		}else{
+//			isBlue = false;
+//		}
+		
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
@@ -140,35 +149,33 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		
-		/*
+		
 		if(isBlue){
-			if(){
-				new BlueGearBoiler();
-			}else if(){
-				new BlueMiddleGear();
-			}else if(){
-				new BlueFeederGear();
-			}else if(){
-				InchesDrive(80.0);
+			if(oi.dial1.get()){
+				autonomousCommand = new BlueGearBoiler();
+			}else if(oi.dial2.get()){
+				autonomousCommand = new BlueMiddleGear();
+			}else if(oi.dial3.get()){
+				autonomousCommand = new BlueFeederGear();
+			}else if(oi.dial4.get()){
+				autonomousCommand = new InchesDrive(96.0);
 			}else{
 				autonomousCommand = null;
 			}
 		}
 		if(!isBlue){
-			if(){
-				new RedGearBoiler();
-			}else if(){
-				new RedMiddleGear();
-			}else if(){
-				new RedFeederGear();
-			}else if(){
-				InchesDrive(80.0);
+			if(oi.dial1.get()){
+				autonomousCommand = new RedGearBoiler();
+			}else if(oi.dial2.get()){
+				autonomousCommand = new RedMiddleGear();
+			}else if(oi.dial3.get()){
+				autonomousCommand = new RedFeederGear();
+			}else if(oi.dial4.get()){
+				autonomousCommand = new InchesDrive(96.0);
 			}else{
 				autonomousCommand = null;
 			}
 		}
-		*/
-		
 		
 		
 		/*
@@ -214,7 +221,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Gear Center X", GearTargetInfo.getGearCenterX());
 		SmartDashboard.putNumber("Gear Center Y", GearTargetInfo.getGearCenterY());
 		SmartDashboard.putNumber("Number of Gear Targets", GearTargetInfo.getNumTargets());
-		SmartDashboard.putNumber("Potentiometer", turret.getPot());
+		SmartDashboard.putNumber("Potentiometer", Turret.getPot());
 		SmartDashboard.putNumber("Ultrasonic Inches", gearEjector.getUltraInches());
 	}
 

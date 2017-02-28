@@ -1,9 +1,7 @@
 package org.usfirst.frc.team2642.robot.commands.shooter;
 
-import org.usfirst.frc.team2642.robot.OI;
 import org.usfirst.frc.team2642.robot.Robot;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**

@@ -3,8 +3,6 @@ package org.usfirst.frc.team2642.robot.commands.drive;
 import org.usfirst.frc.team2642.robot.GearTargetInfo;
 import org.usfirst.frc.team2642.robot.Robot;
 import org.usfirst.frc.team2642.robot.RobotMap;
-import org.usfirst.frc.team2642.robot.commands.gear.SetCameraGearVision;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
