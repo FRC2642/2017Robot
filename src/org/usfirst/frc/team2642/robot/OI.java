@@ -95,8 +95,10 @@ public class OI {
 		xBoxY.whenPressed(new EjectGear());
 		
 		//Intake
-		trigger.toggleWhenPressed(new IntakeIn());
-		xBoxA.whileHeld(new IntakeIn());
+		trigger.whenPressed(new IntakeIn());
+		trigger.whenReleased(new IntakeOff());
+		xBoxA.whenPressed(new IntakeIn());
+		xBoxA.whenReleased(new IntakeOff());
 		side12.whenPressed(new IntakeOut());
 		side12.whenReleased(new IntakeOff());
 		
