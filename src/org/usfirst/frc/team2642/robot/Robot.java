@@ -79,13 +79,6 @@ public class Robot extends IterativeRobot {
 		});
 		boilerVisionThread.start(); 
 
-
-		DriverStation.Alliance color = DriverStation.getInstance().getAlliance();
-		if(color == DriverStation.Alliance.Blue){
-			isBlue = true;
-		}else{
-			isBlue = false;
-		}
 		
 		//Control for the manual alliance switcher
 //		if(oi.rTop.get()){
@@ -148,7 +141,12 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		
+		DriverStation.Alliance color = DriverStation.getInstance().getAlliance();
+		if(color == DriverStation.Alliance.Blue){
+			isBlue = true;
+		}else{
+			isBlue = false;
+		}
 		
 		if(isBlue){
 			if(oi.dial1.get()){
@@ -206,6 +204,8 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		setCameraBoilerVision(false);
+		setCameraGearVision(false);
 	}
 
 	/**
