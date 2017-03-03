@@ -109,9 +109,9 @@ public class OI {
 //		sideTrigger.whileHeld(new ManualShootSpeed());
 		
 		//Turret
-		ManualTurret manualTurret; 
-		sideTrigger.whenPressed(manualTurret = new ManualTurret());
-		sideTrigger.whenReleased(manualTurret);
+//		ManualTurret manualTurret; 
+		sideTrigger.whenPressed(new ManualTurret());
+//		sideTrigger.whenReleased(manualTurret);
 		//top3.whenPressed(new AimTurret());
 		
 		//Auto
