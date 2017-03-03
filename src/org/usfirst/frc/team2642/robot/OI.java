@@ -76,6 +76,7 @@ public class OI {
 		rSwitch.whenPressed(new SetCameraBoilerVision(true));
 		rSwitch.whileHeld(new RotateTurret());	//TODO check to see if this works (keeps targeting even when pushed)
 		rSwitch.whenReleased(new SetCameraBoilerVision(false));
+		rSwitch.whenReleased(new ManualTurret());
 		mSwitch.whenPressed(new SetCameraGearVision(true));
 		mSwitch.whenPressed(new DriveAtPeg(3.0));
 		mSwitch.whenReleased(new SetCameraGearVision(false));
