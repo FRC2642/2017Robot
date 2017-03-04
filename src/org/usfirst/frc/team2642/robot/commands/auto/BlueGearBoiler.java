@@ -30,7 +30,7 @@ public class BlueGearBoiler extends CommandGroup {
     	 */
     	addSequential(new SetCameraGearVision(true));
     	addSequential(new InchesDrive(-70));
-    	addSequential(new DegreesTurnDrive(55));
+    	addSequential(new DegreesTurnDrive(50));
     	addSequential(new DriveAtPeg(5.0));
     	addSequential(new InchesDrive(-15.0));
     	addSequential(new EjectGear());

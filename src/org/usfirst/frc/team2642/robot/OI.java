@@ -80,6 +80,7 @@ public class OI {
 		mSwitch.whenPressed(new SetCameraGearVision(true));
 		mSwitch.whenPressed(new DriveAtPeg(3.0));
 		mSwitch.whenReleased(new SetCameraGearVision(false));
+		mSwitch.whenReleased(new DriveAtPeg(0.0));
 		
 		//Set Drive Mode
 		xBoxStart.whenPressed(new FlipDrive());
@@ -89,6 +90,7 @@ public class OI {
 		side9.whenReleased(new ClimbStop());
 		side7.whileHeld(new ClimbUp());
 		side7.whenReleased(new ClimbStop());
+		side11.whenPressed(new ClimbStop());
 				
 		//Gear
 		top6.whenPressed(new PlaceGear());
@@ -102,6 +104,7 @@ public class OI {
 		xBoxA.whenReleased(new IntakeOff());
 		side12.whenPressed(new IntakeOut());
 		side12.whenReleased(new IntakeOff());
+		
 		
 		//Shooter
 //		xBoxRB.whileHeld(new Shoot());

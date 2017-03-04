@@ -15,9 +15,12 @@ public class DriveAtPeg extends Command {
     public DriveAtPeg(double timeout) {
     	requires(Robot.gearEjector);
     	requires(Robot.driveTrain);
+    	this.timeout = timeout;
     }
+    
 
     protected void initialize() {
+    	setTimeout(timeout);
     }
 
     
@@ -38,7 +41,7 @@ public class DriveAtPeg extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (Robot.gearEjector.getUltraInches() < RobotMap.pegDistance);
+        return ((Robot.gearEjector.getUltraInches() < RobotMap.pegDistance) || isTimedOut());
     }
 
     // Called once after isFinished returns true
