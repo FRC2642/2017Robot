@@ -25,17 +25,25 @@ public class DriveAtPeg extends Command {
 
     
     protected void execute() {
-    	//Gear center is outside of the offset area
-    	if(Math.abs(GearTargetInfo.getGearCenterX()) > RobotMap.drivePegOffset){
-    		//Too far right
-    		if(GearTargetInfo.getGearCenterX() < -5){
-    			Robot.driveTrain.drive(RobotMap.drivePegForward, -RobotMap.drivePegCorrection);
-    		}
-    		if(GearTargetInfo.getGearCenterX() > 5){
-    			Robot.driveTrain.drive(RobotMap.drivePegForward, RobotMap.drivePegCorrection);
+    	if(GearTargetInfo.getNumTargets() == 1){
+    		if(GearTargetInfo.getGearCenterX1() > 0){
+    			Robot.driveTrain.drive(0, RobotMap.drivePegCorrection);
+    		}else{
+    			Robot.driveTrain.drive(0, -RobotMap.drivePegCorrection);
     		}
     	}else{
-    		Robot.driveTrain.drive(RobotMap.drivePegDefault, 0.0);
+	    	//Gear center is outside of the offset area
+	    	if(Math.abs(GearTargetInfo.getGearCenterX()) > RobotMap.drivePegOffset){
+	    		//Too far right
+	    		if(GearTargetInfo.getGearCenterX() < -5){
+	    			Robot.driveTrain.drive(RobotMap.drivePegForward, -RobotMap.drivePegCorrection);
+	    		}
+	    		if(GearTargetInfo.getGearCenterX() > 5){
+	    			Robot.driveTrain.drive(RobotMap.drivePegForward, RobotMap.drivePegCorrection);
+	    		}
+	    	}else{
+	    		Robot.driveTrain.drive(RobotMap.drivePegDefault, 0.0);
+	    	}
     	}
     }
 
