@@ -15,6 +15,7 @@ public class Shoot extends Command {
     protected void execute() {
     	Robot.shooter.spinUp();
     	Robot.shooter.shoot();
+    	Robot.shooter.ballSpinnerForward();
     }
 
     protected boolean isFinished() {
