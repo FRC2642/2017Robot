@@ -1,11 +1,9 @@
 package org.usfirst.frc.team2642.robot.subsystems;
 
-import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import org.usfirst.frc.team2642.robot.Robot;
 import org.usfirst.frc.team2642.robot.RobotMap;
 
 /**
@@ -40,10 +38,11 @@ public class GearFloor extends PIDSubsystem {
 	}
 
 	protected double returnPIDInput() {
+		System.out.println(floorGearPot.get());
 		return floorGearPot.get() * 5;
 	}
 
 	protected void usePIDOutput(double output) {
-		moveAngle(output);
+		//moveAngle(output);
 	}
 }

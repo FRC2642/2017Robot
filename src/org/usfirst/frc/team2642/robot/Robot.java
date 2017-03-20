@@ -32,12 +32,13 @@ public class Robot extends IterativeRobot {
 	public static final Shooter shooter = new Shooter();
 	public static final Turret turret = new Turret();
 	public static final Hood hood = new Hood();
+	//public static final GearFloor gearFloor = new GearFloor();
 	public static OI oi;
 
 	//Cameras
 	private static UsbCamera cameraBoiler;
 	private static UsbCamera cameraGear;
-	private static UsbCamera cameraDriver;
+	//private static UsbCamera cameraDriver;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -52,20 +53,20 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		SmartDashboard.putString("Code Version", "0.0.0");
-		oi = new OI();
-
+//		oi = new OI();
+/*
 		//Camera instances
 		cameraBoiler = CameraServer.getInstance().startAutomaticCapture("Boiler", RobotMap.cameraBoiler);
 		cameraGear = CameraServer.getInstance().startAutomaticCapture("Gear", RobotMap.cameraGear);
-		cameraDriver = CameraServer.getInstance().startAutomaticCapture("Driver", RobotMap.cameraDriver);
+		//cameraDriver = CameraServer.getInstance().startAutomaticCapture("Driver", RobotMap.cameraDriver);
 		//Camera resolutions
 		cameraBoiler.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
 		cameraGear.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
-		cameraDriver.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
+		//.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
 		//Camera FPS
 		cameraBoiler.setFPS(10);
 		cameraGear.setFPS(10);
-		cameraDriver.setFPS(10);
+		//cameraDriver.setFPS(10);
 		//Turns off vision by default
 		setCameraBoilerVision(false);
 		setCameraGearVision(false);
@@ -93,7 +94,7 @@ public class Robot extends IterativeRobot {
 		
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
+//		SmartDashboard.putData("Auto mode", chooser);*/
 	}
 
 	//Changes camera mode for the boiler camera

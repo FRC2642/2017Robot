@@ -21,7 +21,7 @@ public class Shooter extends Subsystem {
 		shooterControl.set(-1.0);
 	}
 
-	public void ballSpinnerForward() {
+	/*public void ballSpinnerForward() {
 		ballSpinner.set(Relay.Value.kForward);
 	}
 
@@ -31,7 +31,7 @@ public class Shooter extends Subsystem {
 
 	public void ballSpinnerOff() {
 		ballSpinner.set(Relay.Value.kOff);
-	}
+	}*/
 
 	public void stuck(){
 		flywheel.set(0.5);

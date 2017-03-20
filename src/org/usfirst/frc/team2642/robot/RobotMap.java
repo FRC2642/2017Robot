@@ -28,7 +28,7 @@ public class RobotMap {
 	public static int gearUltra = 3;
 	public static int turretPot = 0;
 	public static int gearPot = 1;
-	public static int floorGearPot = 4;
+	public static int floorGearPot = 2;
 
 	//Relay
 	
@@ -93,6 +93,10 @@ public class RobotMap {
 	//Turret Potentiometer Limits
 	public static double turretLower = 0.499;
 	public static double turretUpper = 0.640;
+	//GearFloor Setpoints
+	public static double ground;
+	public static double hold;
+	
 }
 
 //
