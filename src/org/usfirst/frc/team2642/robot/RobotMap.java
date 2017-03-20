@@ -25,10 +25,6 @@ public class RobotMap {
 	public static int gearUltra = 3;
 	public static int turretPot = 0;
 	public static int gearPot = 1;
-<<<<<<< HEAD
-	public static int floorGearPot = 2;
-=======
->>>>>>> eff8ecfff435983a5572248eca54d8cb2804c307
 
 	//Relay
 	
