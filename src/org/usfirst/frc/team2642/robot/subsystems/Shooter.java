@@ -1,6 +1,5 @@
 package org.usfirst.frc.team2642.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Relay;
 import org.usfirst.frc.team2642.robot.RobotMap;
 import org.usfirst.frc.team2642.robot.commands.shooter.ShooterOff;
 import edu.wpi.first.wpilibj.Victor;
@@ -12,7 +11,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Shooter extends Subsystem {
 	Victor flywheel = new Victor(RobotMap.flywheel);
 	Victor shooterControl = new Victor(RobotMap.shooterControl);
-	Relay ballSpinner = new Relay(RobotMap.ballSpinner);
 	
 	public void spinUp(){
 		flywheel.set(-1.0);
@@ -21,6 +19,7 @@ public class Shooter extends Subsystem {
 		shooterControl.set(-1.0);
 	}
 
+<<<<<<< HEAD
 	/*public void ballSpinnerForward() {
 		ballSpinner.set(Relay.Value.kForward);
 	}
@@ -33,6 +32,8 @@ public class Shooter extends Subsystem {
 		ballSpinner.set(Relay.Value.kOff);
 	}*/
 
+=======
+>>>>>>> eff8ecfff435983a5572248eca54d8cb2804c307
 	public void stuck(){
 		flywheel.set(0.5);
 		shooterControl.set(1.0);

@@ -14,7 +14,7 @@ public class ShooterStuck extends Command {
 
     protected void execute() {
     	Robot.shooter.stuck();
-    	//Robot.shooter.ballSpinnerReverse();
+
     }
 
     protected boolean isFinished() {
