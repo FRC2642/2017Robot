@@ -32,7 +32,8 @@ public class Robot extends IterativeRobot {
 	public static final Shooter shooter = new Shooter();
 	public static final Turret turret = new Turret();
 	public static final Hood hood = new Hood();
-	//public static final GearFloor gearFloor = new GearFloor();
+	public static final GearIntake gearIntake = new GearIntake();
+	public static final GearFloor gearFloor = new GearFloor();
 	public static OI oi;
 
 	//Cameras
@@ -51,30 +52,19 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		SmartDashboard.putString("Code Version", "0.0.0");
-//		oi = new OI();
-/*
+		SmartDashboard.putString("Code Version", "0.1.0");
+		oi = new OI();
+
 		//Camera instances
 		cameraBoiler = CameraServer.getInstance().startAutomaticCapture("Boiler", RobotMap.cameraBoiler);
 		cameraGear = CameraServer.getInstance().startAutomaticCapture("Gear", RobotMap.cameraGear);
-<<<<<<< HEAD
-		//cameraDriver = CameraServer.getInstance().startAutomaticCapture("Driver", RobotMap.cameraDriver);
-		//Camera resolutions
-		cameraBoiler.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
-		cameraGear.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
-		//.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
-		//Camera FPS
-		cameraBoiler.setFPS(10);
-		cameraGear.setFPS(10);
-		//cameraDriver.setFPS(10);
-=======
 		//Camera resolutions
 		cameraBoiler.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
 		cameraGear.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
 		//Camera FPS
 		cameraBoiler.setFPS(10);
 		cameraGear.setFPS(10);
->>>>>>> eff8ecfff435983a5572248eca54d8cb2804c307
+		
 		//Turns off vision by default
 		setCameraBoilerVision(false);
 		setCameraGearVision(false);
@@ -236,6 +226,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Number of Gear Targets", GearTargetInfo.getNumTargets());
 		SmartDashboard.putNumber("Potentiometer", Turret.getPot());
 		SmartDashboard.putNumber("Ultrasonic Inches", gearEjector.getUltraInches());
+		System.out.println(gearIntake.gearLimit.get());
 	}
 
 	/**
