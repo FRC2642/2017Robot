@@ -19,6 +19,7 @@ public class Shooter extends Subsystem {
 		shooterControl.set(-1.0);
 	}
 
+
 	public void stuck(){
 		flywheel.set(0.5);
 		shooterControl.set(1.0);

@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2642.robot;
 
+import edu.wpi.first.wpilibj.AnalogInput;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -17,13 +19,16 @@ public class RobotMap {
 	public static int shooterControl = 5;
 	public static int shooterRotate = 6;
 	//Other
-	public static int intake = 2;
+	public static int intake = 9;
 	public static int gearEjector = 3;
 	public static int hood = 7;
+	public static int gearIntake = 2;
+	public static int gearIntakeRotate = 8;
 
 	//Analog
 	public static int gearUltra = 3;
 	public static int turretPot = 0;
+	public static int gearIntakePot = 2;
 	public static int gearPot = 1;
 
 	//Relay
@@ -40,6 +45,8 @@ public class RobotMap {
 	public static int rEncoder1 = 2;
 	public static int rEncoder2 = 3;
 	//Other
+	public static int gearLimit = 4;
+
 	
 	//PID
 	//Drive
@@ -58,6 +65,11 @@ public class RobotMap {
 	public static double gearP = 0.1;
 	public static double gearI = 0.0;
 	public static double gearD = 0.0;
+	//Gear Pickup
+	public static double gearFloorP = 0.1;
+	public static double gearFloorI = 0.0;
+	public static double gearFloorD = 0.0;
+	
 
 	//Variables
 	//Drive
@@ -82,6 +94,11 @@ public class RobotMap {
 	//Turret Potentiometer Limits
 	public static double turretLower = 0.499;
 	public static double turretUpper = 0.640;
+	//GearFloor Setpoints
+	public static double ground = 0.630;
+	public static double hold = 0.35;
+	public static double gearFloorAdjust = 0.2;
+	
 }
 
 //

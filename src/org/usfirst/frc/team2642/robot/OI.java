@@ -105,6 +105,11 @@ public class OI {
 		side12.whenPressed(new IntakeOut());
 		side12.whenReleased(new IntakeOff());
 		
+		//lSwitch.whenPressed(new ToGround());
+		//lSwitch.whenReleased(new ToHold());
+		//lButton.whenPressed(new FloorCollect());
+		//mButton.whenPressed(new FloorEject());
+		
 		
 		//Shooter
 //		xBoxRB.whileHeld(new Shoot());

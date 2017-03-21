@@ -32,6 +32,8 @@ public class Robot extends IterativeRobot {
 	public static final Shooter shooter = new Shooter();
 	public static final Turret turret = new Turret();
 	public static final Hood hood = new Hood();
+	public static final GearIntake gearIntake = new GearIntake();
+	public static final GearFloor gearFloor = new GearFloor();
 	public static OI oi;
 
 	//Cameras
@@ -50,7 +52,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		SmartDashboard.putString("Code Version", "0.0.0");
+		SmartDashboard.putString("Code Version", "0.1.0");
 		oi = new OI();
 
 		//Camera instances
@@ -62,6 +64,7 @@ public class Robot extends IterativeRobot {
 		//Camera FPS
 		cameraBoiler.setFPS(10);
 		cameraGear.setFPS(10);
+		
 		//Turns off vision by default
 		setCameraBoilerVision(false);
 		setCameraGearVision(false);
@@ -89,7 +92,7 @@ public class Robot extends IterativeRobot {
 		
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
+//		SmartDashboard.putData("Auto mode", chooser);*/
 	}
 
 	//Changes camera mode for the boiler camera
@@ -223,6 +226,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Number of Gear Targets", GearTargetInfo.getNumTargets());
 		SmartDashboard.putNumber("Potentiometer", Turret.getPot());
 		SmartDashboard.putNumber("Ultrasonic Inches", gearEjector.getUltraInches());
+		System.out.println(gearIntake.gearLimit.get());
 	}
 
 	/**
