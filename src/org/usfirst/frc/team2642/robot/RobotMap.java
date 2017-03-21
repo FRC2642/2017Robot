@@ -66,7 +66,7 @@ public class RobotMap {
 	public static double gearI = 0.0;
 	public static double gearD = 0.0;
 	//Gear Pickup
-	public static double gearFloorP = 0.1;
+	public static double gearFloorP = 10.0;
 	public static double gearFloorI = 0.0;
 	public static double gearFloorD = 0.0;
 	
@@ -93,11 +93,11 @@ public class RobotMap {
 	public static final int IMG_HEIGHT = 240;
 	//Turret Potentiometer Limits
 	public static double turretLower = 0.499;
-	public static double turretUpper = 0.640;
+	public static double turretUpper = 0.650;
 	//GearFloor Setpoints
 	public static double ground = 0.630;
 	public static double hold = 0.35;
-	public static double gearFloorAdjust = 0.2;
+	public static double gearFloorAdjust = 1.0;
 	
 }
 

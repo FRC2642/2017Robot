@@ -32,7 +32,7 @@ public class GearFloor extends PIDSubsystem {
     }
 
     protected double returnPIDInput() {
-    	System.out.println(gearIntakePot.get());
+//    	System.out.println(gearIntakePot.get());
     	return gearIntakePot.pidGet();				//Good
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:

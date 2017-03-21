@@ -9,8 +9,14 @@ import org.usfirst.frc.team2642.robot.commands.auto.PlaceGear;
 import org.usfirst.frc.team2642.robot.commands.climber.* ;
 import org.usfirst.frc.team2642.robot.commands.drive.*;
 import org.usfirst.frc.team2642.robot.commands.gear.*;
+import org.usfirst.frc.team2642.robot.commands.gearFloor.Collect;
+import org.usfirst.frc.team2642.robot.commands.gearFloor.Eject;
+import org.usfirst.frc.team2642.robot.commands.gearFloor.GearIntakeStop;
+import org.usfirst.frc.team2642.robot.commands.gearFloor.MoveToGround;
+import org.usfirst.frc.team2642.robot.commands.gearFloor.MoveToHold;
 import org.usfirst.frc.team2642.robot.commands.intake.*;
 import org.usfirst.frc.team2642.robot.commands.shooter.*;
+import org.usfirst.frc.team2642.robot.subsystems.GearIntake;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -105,11 +111,12 @@ public class OI {
 		side12.whenPressed(new IntakeOut());
 		side12.whenReleased(new IntakeOff());
 		
-		//lSwitch.whenPressed(new ToGround());
-		//lSwitch.whenReleased(new ToHold());
-		//lButton.whenPressed(new FloorCollect());
-		//mButton.whenPressed(new FloorEject());
-		
+		lSwitch.whenPressed(new MoveToHold());
+		lSwitch.whenReleased(new MoveToGround());
+		lButton.whileHeld(new Collect());
+		lButton.whenReleased(new GearIntakeStop());
+		mButton.whileHeld(new Eject());
+		mButton.whenReleased(new GearIntakeStop());
 		
 		//Shooter
 //		xBoxRB.whileHeld(new Shoot());

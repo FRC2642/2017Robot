@@ -15,13 +15,18 @@ public class GearIntake extends Subsystem {
 
 			//Good
 	public void gearIntakeCollect(){
+		System.out.print(gearLimit.get());
 		if(!gearLimit.get()){
-			gearIntake.set(1.0);
+			gearIntake.set(-1.0);
 		}
 	}
 	
 	public void gearIntakeEject(){
-		gearIntake.set(-1.0);
+		gearIntake.set(1.0);
+	}
+	
+	public void gearIntakeOff() {
+		gearIntake.set(0.0);
 	}
 
     // Put methods for controlling this subsystem

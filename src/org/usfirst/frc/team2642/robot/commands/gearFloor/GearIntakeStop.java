@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class Collect extends Command {
+public class GearIntakeStop extends Command {
 
-    public Collect() {
+    public GearIntakeStop() {
     	requires(Robot.gearIntake);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -21,7 +21,7 @@ public class Collect extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.gearIntake.gearIntakeCollect();
+    	Robot.gearIntake.gearIntakeOff();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,6 +34,5 @@ public class Collect extends Command {
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+    protected void interrupted() {}
 }
