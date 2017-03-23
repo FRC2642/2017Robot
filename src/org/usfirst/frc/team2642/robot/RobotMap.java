@@ -37,6 +37,7 @@ public class RobotMap {
 	//Cameras
 	public static int cameraBoiler = 0;
 	public static int cameraGear = 1;
+	public static int frontCamera = 2;
 	
 	//DIO
 	//Encoders
