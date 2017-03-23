@@ -27,14 +27,14 @@ public class RedFeederGear extends CommandGroup {
     	 * 6.TODO determine if the robot's orientation should be flipped in this auto for faster gear runs
     	 */
     	addSequential(new SetCameraGearVision(true));
-    	addSequential(new InchesDrive(-70));
+    	addSequential(new InchesDrive(BlueFeederGear.inchesDrive1));
     	addSequential(new LookForGear(false));
-//    	addSequential(new DegreesTurnDrive(55));
     	addSequential(new DriveAtPeg(5.0));
-    	addSequential(new InchesDrive(-16.0));
+    	addSequential(new InchesDrive(BlueFeederGear.inchesDrive2));
     	addSequential(new EjectGear());
-    	addSequential(new InchesDrive(36.0));
-    	addSequential(new DegreesTurnDrive(-55.0));
+    	addSequential(new InchesDrive(BlueFeederGear.inchesDrive3));
+    	addSequential(new DegreesTurnDrive(-BlueFeederGear.degreesTurnDrive1));
+    	addSequential(new InchesDrive(BlueFeederGear.inchesDrive1));
     	addSequential(new SetCameraGearVision(true));
 
     }

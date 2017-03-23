@@ -39,6 +39,7 @@ public class Robot extends IterativeRobot {
 	//Cameras
 	private static UsbCamera cameraBoiler;
 	private static UsbCamera cameraGear;
+	private static UsbCamera cameraFront;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -58,12 +59,16 @@ public class Robot extends IterativeRobot {
 		//Camera instances
 		cameraBoiler = CameraServer.getInstance().startAutomaticCapture("Boiler", RobotMap.cameraBoiler);
 		cameraGear = CameraServer.getInstance().startAutomaticCapture("Gear", RobotMap.cameraGear);
+//		cameraFront = CameraServer.getInstance().startAutomaticCapture("Front", RobotMap.cameraFront);
 		//Camera resolutions
 		cameraBoiler.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
 		cameraGear.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
+//		cameraFront.setResolution(160, 120);
+
 		//Camera FPS
 		cameraBoiler.setFPS(10);
 		cameraGear.setFPS(10);
+//		cameraFront.setFPS(10);
 		
 		//Turns off vision by default
 		setCameraBoilerVision(false);

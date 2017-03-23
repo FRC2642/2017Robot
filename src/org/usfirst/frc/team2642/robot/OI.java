@@ -113,10 +113,10 @@ public class OI {
 		
 		lSwitch.whenPressed(new MoveToHold());
 		lSwitch.whenReleased(new MoveToGround());
-		lButton.whileHeld(new Collect());
-		lButton.whenReleased(new GearIntakeStop());
-		mButton.whileHeld(new Eject());
+		mButton.whileHeld(new Collect());
 		mButton.whenReleased(new GearIntakeStop());
+		rButton.whileHeld(new Eject());
+		rButton.whenReleased(new GearIntakeStop());
 		
 		//Shooter
 //		xBoxRB.whileHeld(new Shoot());
