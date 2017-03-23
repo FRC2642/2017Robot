@@ -14,7 +14,7 @@ public class LookForGear extends Command {
 	boolean left;
 	
     public LookForGear(boolean left) {
-    	left = this.left;
+    	this.left = left;
     	requires(Robot.driveTrain);
     	requires(Robot.gearEjector);
         // Use requires() here to declare subsystem dependencies
@@ -28,9 +28,9 @@ public class LookForGear extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(left){
-    		Robot.driveTrain.drive(0, -RobotMap.drivePegCorrection);
+    		Robot.driveTrain.drive(0, -RobotMap.drivePegCorrection*1.1);
     	}else{
-    		Robot.driveTrain.drive(0, RobotMap.drivePegCorrection);
+    		Robot.driveTrain.drive(0, RobotMap.drivePegCorrection*1.1);
     	}
     }
 

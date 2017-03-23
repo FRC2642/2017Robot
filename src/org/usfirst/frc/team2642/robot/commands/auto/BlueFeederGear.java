@@ -13,6 +13,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class BlueFeederGear extends CommandGroup {
+	
+	public static double inchesDrive1 = -70.0;
+	public static double inchesDrive2 = -16.0;
+	public static double inchesDrive3 = 36.0;
+	public static double degreesTurnDrive1 = 45.0;
+	public static double inchesDrive4 = -180.0;
 
     public BlueFeederGear() {
     	/*
@@ -27,14 +33,14 @@ public class BlueFeederGear extends CommandGroup {
     	 * 6.TODO determine if the robot's orientation should be flipped in this auto for faster gear runs
     	 */
     	addSequential(new SetCameraGearVision(true));
-    	addSequential(new InchesDrive(-70));
+    	addSequential(new InchesDrive(inchesDrive1));
     	addSequential(new LookForGear(true));
-//    	addSequential(new DegreesTurnDrive(-55));
     	addSequential(new DriveAtPeg(5.0));
-    	addSequential(new InchesDrive(-16.0));
+    	addSequential(new InchesDrive(inchesDrive2));
     	addSequential(new EjectGear());
-    	addSequential(new InchesDrive(36.0));
-    	addSequential(new DegreesTurnDrive(55.0));
+    	addSequential(new InchesDrive(inchesDrive3));
+    	addSequential(new DegreesTurnDrive(degreesTurnDrive1));
+    	addSequential(new InchesDrive(inchesDrive4));
     	addSequential(new SetCameraGearVision(true));
 
     }

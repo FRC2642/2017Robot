@@ -42,7 +42,7 @@ public class RedGearBoiler extends CommandGroup {
     	addSequential(new Wait(1.5));
     	addSequential(new InchesDrive(-18.0));
     	addSequential(new DegreesTurnDrive(65.0));
-    	addSequential(new InchesDrive(24.0));
+    	addSequential(new InchesDrive(40.0));
     	addSequential(new AimAndShoot());
     	addSequential(new SetCameraGearVision(false));
     }

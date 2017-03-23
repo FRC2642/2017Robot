@@ -17,7 +17,7 @@ public class RobotMap {
 	//Shooter
 	public static int flywheel = 4;
 	public static int shooterControl = 5;
-	public static int shooterRotate = 6;
+	public static int shooterRotate = 6;   
 	//Other
 	public static int intake = 9;
 	public static int gearEjector = 3;
@@ -37,7 +37,7 @@ public class RobotMap {
 	//Cameras
 	public static int cameraBoiler = 0;
 	public static int cameraGear = 1;
-	public static int frontCamera = 2;
+	public static int cameraFront = 2;
 	
 	//DIO
 	//Encoders
