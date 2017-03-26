@@ -35,6 +35,7 @@ public class DegreesTurnDrive extends PIDCommand {
     }
 
     protected void interrupted() {
+    	Robot.driveTrain.disable();
     }
 
 	@Override

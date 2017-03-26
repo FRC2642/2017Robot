@@ -37,7 +37,7 @@ public class RedGearBoiler extends CommandGroup {
     	addSequential(new InchesDrive(-15.0));
     	addSequential(new EjectGear());
     	addSequential(new InchesDrive(36.0));
-    	addSequential(new DegreesTurnDrive(-29.0));
+    	addSequential(new DegreesTurnDrive(-48.0));
     	addSequential(new InchesDrive(54.0));
     	addSequential(new Wait(1.5));
     	addSequential(new InchesDrive(-18.0));

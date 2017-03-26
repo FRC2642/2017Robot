@@ -137,8 +137,10 @@ public class OI {
 //		mButton.whenPressed(new BlueMiddleGear());
 //		rButton.whenPressed(new BlueFeederGear());
 		
+		//lTop.whenPressed(new SwitchCameras(true));
+		//rTop.whenPressed(new SwitchCameras(false));
 		
-		
+		xBoxSelect.whenPressed(new KillPID());
 	}
 
 
