@@ -31,18 +31,11 @@ public class GearEjector extends PIDSubsystem {
     public void initDefaultCommand() {}
 
     protected double returnPIDInput() {
-        // Return your input value for the PID loop
-        // e.g. a sensor, like a potentiometer:
-        // yourPot.getAverageVoltage() / kYourMaxVoltage;
         return gearEncoder.get()*5;
     }
 
     protected void usePIDOutput(double output) {
-//    	System.out.println(output);
     	eject(output);
-    	
-        // Use output to drive your system, like a motor
-        // e.g. yourMotor.set(output);
     }
     
     public void climbUp(){
@@ -51,7 +44,7 @@ public class GearEjector extends PIDSubsystem {
 	
 	//Grab the rope
 	public void grabRope(){
-		eject(0.5);
+		eject(0.3);
 	}
 	
 	//Stop climbing

@@ -17,7 +17,7 @@ public class EjectGear extends Command {
     }
 
     protected void execute() {
-    	Robot.gearEjector.eject(1.0);
+    	Robot.gearEjector.eject(0.8);
     }
 
     protected boolean isFinished() {

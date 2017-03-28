@@ -85,19 +85,7 @@ public class Robot extends IterativeRobot {
 		VisionThread boilerVisionThread = new VisionThread(cameraBoiler, new BoilerPipeline(), boilerPipeline -> {
 			BoilerTargetInfo.setFilterContours(boilerPipeline.filterContoursOutput());
 		});
-		boilerVisionThread.start(); 
-
-		
-		//Control for the manual alliance switcher
-//		if(oi.rTop.get()){
-//			isBlue = true;
-//		}else{
-//			isBlue = false;
-//		}
-		
-		//chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-//		SmartDashboard.putData("Auto mode", chooser);*/
+		boilerVisionThread.start();
 	}
 
 	//Changes camera mode for the boiler camera
