@@ -3,7 +3,6 @@ package org.usfirst.frc.team2642.robot.commands.gearFloor;
 import org.usfirst.frc.team2642.robot.Robot;
 import org.usfirst.frc.team2642.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
 /**

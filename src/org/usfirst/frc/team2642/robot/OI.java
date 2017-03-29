@@ -16,7 +16,6 @@ import org.usfirst.frc.team2642.robot.commands.gearFloor.MoveToGround;
 import org.usfirst.frc.team2642.robot.commands.gearFloor.MoveToHold;
 import org.usfirst.frc.team2642.robot.commands.intake.*;
 import org.usfirst.frc.team2642.robot.commands.shooter.*;
-import org.usfirst.frc.team2642.robot.subsystems.GearIntake;
 
 /**
  * This class is the glue that binds the controls on the physical operator
