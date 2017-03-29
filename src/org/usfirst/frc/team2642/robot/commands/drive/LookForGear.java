@@ -23,6 +23,7 @@ public class LookForGear extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	setTimeout(5);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -36,7 +37,7 @@ public class LookForGear extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (Math.abs(GearTargetInfo.getGearCenterX()) < 30);
+        return (Math.abs(GearTargetInfo.getGearCenterX()) < 30) || isTimedOut();
     }
 
     // Called once after isFinished returns true

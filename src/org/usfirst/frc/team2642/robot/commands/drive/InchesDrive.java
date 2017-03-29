@@ -33,5 +33,7 @@ public class InchesDrive extends Command {
     	Robot.driveTrain.disable();
     }
 
-    protected void interrupted() {}
+    protected void interrupted() {
+    	Robot.driveTrain.disable();
+    }
 }

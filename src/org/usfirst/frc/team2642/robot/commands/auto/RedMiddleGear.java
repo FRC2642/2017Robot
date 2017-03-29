@@ -32,7 +32,7 @@ public class RedMiddleGear extends CommandGroup {
     	addSequential(new InchesDrive(96.0));
     	addSequential(new DegreesTurnDrive(40.0));
     	addSequential(new InchesDrive(24.0));
-    	addSequential(new AimTurret());
+    	addSequential(new AimAndShoot());
     	addSequential(new SetCameraGearVision(false));
     }
 }

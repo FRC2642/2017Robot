@@ -37,9 +37,9 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	//Cameras
-	private static UsbCamera cameraBoiler;
-	private static UsbCamera cameraGear;
-	private static UsbCamera cameraFront;
+	public static UsbCamera cameraBoiler;
+	public static UsbCamera cameraGear;
+	public static UsbCamera cameraFront;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -59,6 +59,7 @@ public class Robot extends IterativeRobot {
 		//Camera instances
 		cameraBoiler = CameraServer.getInstance().startAutomaticCapture("Boiler", RobotMap.cameraBoiler);
 		cameraGear = CameraServer.getInstance().startAutomaticCapture("Gear", RobotMap.cameraGear);
+
 //		cameraFront = CameraServer.getInstance().startAutomaticCapture("Front", RobotMap.cameraFront);
 		//Camera resolutions
 		cameraBoiler.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
@@ -137,6 +138,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		cameraGear.setFPS(10);
 		DriverStation.Alliance color = DriverStation.getInstance().getAlliance();
 		if(color == DriverStation.Alliance.Blue){
 			isBlue = true;
