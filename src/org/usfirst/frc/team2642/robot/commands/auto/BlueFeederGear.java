@@ -2,6 +2,7 @@ package org.usfirst.frc.team2642.robot.commands.auto;
 
 import org.usfirst.frc.team2642.robot.commands.drive.DegreesTurnDrive;
 import org.usfirst.frc.team2642.robot.commands.drive.DriveAtPeg;
+import org.usfirst.frc.team2642.robot.commands.drive.GyroDegreesTurnDrive;
 import org.usfirst.frc.team2642.robot.commands.drive.InchesDrive;
 import org.usfirst.frc.team2642.robot.commands.drive.LookForGear;
 import org.usfirst.frc.team2642.robot.commands.gear.EjectGear;
@@ -17,7 +18,7 @@ public class BlueFeederGear extends CommandGroup {
 	public static double inchesDrive1 = -70.0;
 	public static double inchesDrive2 = -16.0;
 	public static double inchesDrive3 = 36.0;
-	public static double degreesTurnDrive1 = 45.0;
+	public static double degreesTurnDrive1 = -20.0;
 	public static double inchesDrive4 = -180.0;
 
     public BlueFeederGear() {
@@ -39,7 +40,8 @@ public class BlueFeederGear extends CommandGroup {
     	addSequential(new InchesDrive(inchesDrive2));
     	addSequential(new EjectGear());
     	addSequential(new InchesDrive(inchesDrive3));
-    	addSequential(new DegreesTurnDrive(degreesTurnDrive1));
+//    	addSequential(new DegreesTurnDrive(degreesTurnDrive1));
+    	addSequential(new GyroDegreesTurnDrive(degreesTurnDrive1));
     	addSequential(new InchesDrive(inchesDrive4));
     	addSequential(new SetCameraGearVision(true));
 

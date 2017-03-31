@@ -12,7 +12,7 @@ public class GyroDegreesTurnDrive extends PIDCommand {
 		super(RobotMap.driveGTurnP, RobotMap.driveGTurnI, RobotMap.driveGTurnD);
 		requires(Robot.driveTrain);
 		this.degrees = degrees;
-		setTimeout(Math.abs(degrees / 360.0) * 3.0);
+		setTimeout(2.0);
 	}
 
 	protected void initialize() {
