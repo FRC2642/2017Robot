@@ -27,9 +27,10 @@ public class RobotMap {
 
 	//Analog
 	public static int gearUltra = 3;
-	public static int turretPot = 0;
+	public static int turretPot = 4;
 	public static int gearIntakePot = 2;
 	public static int gearPot = 1;
+	public static int gyro = 0;
 
 	//Relay
 	

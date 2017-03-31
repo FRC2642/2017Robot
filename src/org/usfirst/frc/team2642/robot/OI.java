@@ -117,6 +117,9 @@ public class OI {
 		mButton.whenReleased(new GearIntakeStop());
 		rButton.whileHeld(new Eject());
 		rButton.whenReleased(new GearIntakeStop());
+
+
+		side8.whenPressed(new GyroDegreesTurnDrive(90));
 		
 		//Shooter
 //		xBoxRB.whileHeld(new Shoot());

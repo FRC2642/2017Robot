@@ -2,6 +2,7 @@
 package org.usfirst.frc.team2642.robot;
 
 import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.VideoSink;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -39,7 +40,6 @@ public class Robot extends IterativeRobot {
 	//Cameras
 	public static UsbCamera cameraBoiler;
 	public static UsbCamera cameraGear;
-	public static UsbCamera cameraFront;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -59,17 +59,13 @@ public class Robot extends IterativeRobot {
 		//Camera instances
 		cameraBoiler = CameraServer.getInstance().startAutomaticCapture("Boiler", RobotMap.cameraBoiler);
 		cameraGear = CameraServer.getInstance().startAutomaticCapture("Gear", RobotMap.cameraGear);
-
-//		cameraFront = CameraServer.getInstance().startAutomaticCapture("Front", RobotMap.cameraFront);
-		//Camera resolutions
+			//Camera resolutions
 		cameraBoiler.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
 		cameraGear.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
-//		cameraFront.setResolution(160, 120);
 
 		//Camera FPS
 		cameraBoiler.setFPS(10);
 		cameraGear.setFPS(10);
-//		cameraFront.setFPS(10);
 		
 		//Turns off vision by default
 		setCameraBoilerVision(false);
@@ -145,6 +141,8 @@ public class Robot extends IterativeRobot {
 		}else{
 			isBlue = false;
 		}
+
+		driveTrain.resetGyro();
 		
 		if(isBlue){
 			if(oi.dial1.get()){
@@ -192,6 +190,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Gyro", driveTrain.getGyro());
 	}
 
 	@Override
@@ -204,6 +203,7 @@ public class Robot extends IterativeRobot {
 			autonomousCommand.cancel();
 		setCameraBoilerVision(false);
 		setCameraGearVision(false);
+		driveTrain.resetGyro();
 	}
 
 	/**
@@ -221,6 +221,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Number of Gear Targets", GearTargetInfo.getNumTargets());
 		SmartDashboard.putNumber("Potentiometer", Turret.getPot());
 		SmartDashboard.putNumber("Ultrasonic Inches", gearEjector.getUltraInches());
+		SmartDashboard.putNumber("Gyro", driveTrain.getGyro());
 		System.out.println(gearIntake.gearLimit.get());
 	}
 

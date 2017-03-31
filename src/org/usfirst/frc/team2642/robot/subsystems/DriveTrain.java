@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2642.robot.subsystems;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import org.usfirst.frc.team2642.robot.RobotMap;
 import org.usfirst.frc.team2642.robot.commands.drive.ArcadeDrive;
 
@@ -12,19 +13,22 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 public class DriveTrain extends PIDSubsystem {
 	//Determines drive type
 	private boolean isDriveStraight = true;
+
+	//Drive
+	RobotDrive robotdrive = new RobotDrive(RobotMap.left,
+			RobotMap.right);
+
+	//Encoders for drive
+	Encoder lEncoder = new Encoder(RobotMap.lEncoder1, RobotMap.lEncoder2, false, Encoder.EncodingType.k4X);
+	Encoder rEncoder = new Encoder(RobotMap.rEncoder1, RobotMap.rEncoder2, false, Encoder.EncodingType.k4X);
+
+	AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
 	
 	public DriveTrain() {
 		super(RobotMap.driveStraightP, RobotMap.driveStraightI, RobotMap.driveStraightD);
 		disable();
+		gyro.setSensitivity(0.0065);
 	}
-	
-	//Drive
-	RobotDrive robotdrive = new RobotDrive(RobotMap.left,
-										   RobotMap.right);
-	
-	//Encoders for drive
-	Encoder lEncoder = new Encoder(RobotMap.lEncoder1, RobotMap.lEncoder2, false, Encoder.EncodingType.k4X);
-	Encoder rEncoder = new Encoder(RobotMap.rEncoder1, RobotMap.rEncoder2, false, Encoder.EncodingType.k4X);
 
 	//Standard driving
 	public void drive(double y, double x){
@@ -33,6 +37,14 @@ public class DriveTrain extends PIDSubsystem {
 	
 	public void stop(){
 		robotdrive.arcadeDrive(0, 0);
+	}
+
+	public double getGyro() {
+		return gyro.getAngle();
+	}
+
+	public void resetGyro() {
+		gyro.reset();
 	}
 	
 	public double getEncoderLeft(){
