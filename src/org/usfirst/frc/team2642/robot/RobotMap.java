@@ -58,6 +58,9 @@ public class RobotMap {
 	public static double driveTurnP = 0.15;
 	public static double driveTurnI = 0.0;
 	public static double driveTurnD = 0.0005;
+	public static double driveGTurnP = 0.02;
+	public static double driveGTurnI = 0.0;
+	public static double driveGTurnD = 0.005;
 	
 	//Turret
 	public static double turretP = 0.025;
@@ -77,6 +80,7 @@ public class RobotMap {
 	//Drive
 	public static double driveForwardOffset = 0.25;
 	public static double driveTurnOffset = 0.25;
+	public static double driveGTurnOffset = 2.0;
 	public static double driveCorrection = -0.2;
 	public static double drivePegForward = 0.6;
 	public static double drivePegCorrection = 0.6;

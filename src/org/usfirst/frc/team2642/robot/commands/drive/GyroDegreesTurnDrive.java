@@ -9,21 +9,22 @@ public class GyroDegreesTurnDrive extends PIDCommand {
 	private double degrees;
 
 	public GyroDegreesTurnDrive(double degrees) {
-		super(RobotMap.driveTurnP, RobotMap.driveTurnI, RobotMap.driveTurnD);
+		super(RobotMap.driveGTurnP, RobotMap.driveGTurnI, RobotMap.driveGTurnD);
 		requires(Robot.driveTrain);
 		this.degrees = degrees;
-//		setTimeout(Math.abs(degrees / 360.0) * 3.0);
+		setTimeout(Math.abs(degrees / 360.0) * 3.0);
 	}
 
 	protected void initialize() {
-		Robot.driveTrain.resetBothEncoders();
-		setSetpoint(Robot.driveTrain.setDegrees(degrees));
+//		Robot.driveTrain.resetBothEncoders();
+		setSetpoint(degrees);
 	}
 
 	protected void execute() {}
 
 	protected boolean isFinished() {
-		return Math.abs(getSetpoint() - getPosition()) < RobotMap.driveTurnOffset || isTimedOut();
+//		System.out.print("Setpoint: " + getSetpoint()+ " Position: " + getPosition());
+		return Math.abs(getSetpoint() - getPosition()) < RobotMap.driveGTurnOffset || isTimedOut();
 	}
 
 	protected void end() {
@@ -41,6 +42,6 @@ public class GyroDegreesTurnDrive extends PIDCommand {
 
 	@Override
 	protected void usePIDOutput(double output) {
-		Robot.driveTrain.driveTurn(output);
+		Robot.driveTrain.driveTurn(-output);
 	}
 }
