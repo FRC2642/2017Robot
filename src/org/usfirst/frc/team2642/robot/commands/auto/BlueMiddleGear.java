@@ -1,6 +1,5 @@
 package org.usfirst.frc.team2642.robot.commands.auto;
 
-import org.usfirst.frc.team2642.robot.commands.drive.DegreesTurnDrive;
 import org.usfirst.frc.team2642.robot.commands.drive.DriveAtPeg;
 import org.usfirst.frc.team2642.robot.commands.drive.GyroDegreesTurnDrive;
 import org.usfirst.frc.team2642.robot.commands.drive.InchesDrive;
@@ -29,10 +28,8 @@ public class BlueMiddleGear extends CommandGroup {
     	addSequential(new EjectGear());
     	addSequential(new Wait(0.5));
     	addSequential(new InchesDrive(30.0));
-//    	addSequential(new DegreesTurnDrive(80.0));
     	addSequential(new GyroDegreesTurnDrive(90.0));
     	addSequential(new InchesDrive(96.0));
-//    	addSequential(new DegreesTurnDrive(-40.0));
     	addSequential(new GyroDegreesTurnDrive(45.0));
     	addSequential(new InchesDrive(30.0));
     	addSequential(new AimAndShoot());

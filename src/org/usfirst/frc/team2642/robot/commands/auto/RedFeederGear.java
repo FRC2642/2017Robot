@@ -1,7 +1,7 @@
 package org.usfirst.frc.team2642.robot.commands.auto;
 
-import org.usfirst.frc.team2642.robot.commands.drive.DegreesTurnDrive;
 import org.usfirst.frc.team2642.robot.commands.drive.DriveAtPeg;
+import org.usfirst.frc.team2642.robot.commands.drive.GyroDegreesTurnDrive;
 import org.usfirst.frc.team2642.robot.commands.drive.InchesDrive;
 import org.usfirst.frc.team2642.robot.commands.drive.LookForGear;
 import org.usfirst.frc.team2642.robot.commands.gear.EjectGear;
@@ -33,9 +33,8 @@ public class RedFeederGear extends CommandGroup {
     	addSequential(new InchesDrive(BlueFeederGear.inchesDrive2));
     	addSequential(new EjectGear());
     	addSequential(new InchesDrive(BlueFeederGear.inchesDrive3));
-    	addSequential(new DegreesTurnDrive(-BlueFeederGear.degreesTurnDrive1));
+    	addSequential(new GyroDegreesTurnDrive(-BlueFeederGear.degreesTurnDrive1));
     	addSequential(new InchesDrive(BlueFeederGear.inchesDrive1));
     	addSequential(new SetCameraGearVision(true));
-
     }
 }
