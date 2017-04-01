@@ -72,7 +72,7 @@ public class Robot extends IterativeRobot {
 		
 		//Turns off vision by default
 		setCameraBoilerVision(false);
-		setCameraGearVision(false);
+		setCameraGearVision(true);
 
 		//Vision Thread for gear vision tracking
 		VisionThread gearVisionThread = new VisionThread(cameraGear, new GearPipeline(), gearpipeline -> {
@@ -102,8 +102,8 @@ public class Robot extends IterativeRobot {
 	//Changes camera mode for the gear camera
 	public static void setCameraGearVision(boolean enabled) {
 		if (enabled) {    //Vision Mode
-			cameraGear.setBrightness(35);
-			cameraGear.setExposureManual(1);
+			cameraGear.setBrightness(30);
+			cameraGear.setExposureManual(0);
 		} else {        //Drive Mode
 			cameraGear.setBrightness(0);
 			cameraGear.setExposureManual(20);
@@ -146,6 +146,8 @@ public class Robot extends IterativeRobot {
 		}
 
 		driveTrain.resetGyro();
+		
+		setCameraGearVision(true);
 		
 		if(isBlue){
 			if(oi.dial1.get()){

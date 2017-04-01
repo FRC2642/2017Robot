@@ -17,6 +17,7 @@ public class RedGearBoiler extends CommandGroup {
     public RedGearBoiler() {
     	addSequential(new SetCameraGearVision(true));
     	addSequential(new InchesDrive(-76));
+    	addSequential(new SetCameraGearVision(true));
     	addSequential(new LookForGear(true));
     	addSequential(new DriveAtPeg(5.0));
     	addSequential(new InchesDrive(-15.0));
