@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team2642.robot;
 
+import edu.wpi.cscore.MjpegServer;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.cscore.VideoSink;
 import edu.wpi.first.wpilibj.CameraServer;
@@ -40,6 +41,7 @@ public class Robot extends IterativeRobot {
 	//Cameras
 	public static UsbCamera cameraBoiler;
 	public static UsbCamera cameraGear;
+	public static MjpegServer cameraFront;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -59,6 +61,7 @@ public class Robot extends IterativeRobot {
 		//Camera instances
 		cameraBoiler = CameraServer.getInstance().startAutomaticCapture("Boiler", RobotMap.cameraBoiler);
 		cameraGear = CameraServer.getInstance().startAutomaticCapture("Gear", RobotMap.cameraGear);
+		cameraFront = new MjpegServer("Front", 0);
 			//Camera resolutions
 		cameraBoiler.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
 		cameraGear.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
@@ -100,10 +103,10 @@ public class Robot extends IterativeRobot {
 	public static void setCameraGearVision(boolean enabled) {
 		if (enabled) {    //Vision Mode
 			cameraGear.setBrightness(35);
-			cameraGear.setExposureManual(0);
+			cameraGear.setExposureManual(1);
 		} else {        //Drive Mode
 			cameraGear.setBrightness(0);
-			cameraGear.setExposureManual(10);
+			cameraGear.setExposureManual(20);
 		}
 	}
 

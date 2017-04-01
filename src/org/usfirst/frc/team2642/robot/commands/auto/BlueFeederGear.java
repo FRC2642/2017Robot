@@ -17,7 +17,7 @@ public class BlueFeederGear extends CommandGroup {
 	public static double inchesDrive1 = -70.0;
 	public static double inchesDrive2 = -16.0;
 	public static double inchesDrive3 = 36.0;
-	public static double degreesTurnDrive1 = -20.0;
+	public static double degreesTurnDrive1 = 0.0;
 	public static double inchesDrive4 = -180.0;
 
     public BlueFeederGear() {
