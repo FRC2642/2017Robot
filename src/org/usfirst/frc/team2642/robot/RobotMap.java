@@ -96,8 +96,8 @@ public class RobotMap {
 	public static final int IMG_WIDTH = 320;
 	public static final int IMG_HEIGHT = 240;
 	//Turret Potentiometer Limits
-	public static double turretLower = 0.560;
-	public static double turretUpper = 0.775;
+	public static double turretLower = 0.367;
+	public static double turretUpper = 0.552;
 	//GearFloor Setpoints
 	public static double ground = 0.630;
 	public static double hold = 0.35;
