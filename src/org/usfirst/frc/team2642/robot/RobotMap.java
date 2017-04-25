@@ -100,7 +100,7 @@ public class RobotMap {
 	public static double turretUpper = 0.552;
 	//GearFloor Setpoints
 	public static double ground = 0.630;
-	public static double hold = 0.35;
+	public static double hold = 0.33; 	//0.35; Old Setpoint
 	public static double gearFloorAdjust = 1.0;
 	
 }

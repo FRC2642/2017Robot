@@ -1,8 +1,51 @@
+/*
+ * Official 2642 Prayer to the FIRST Robotics Gods:
+ * 
+ * We pray to Dean, Woodie, and Don
+ * for success in our matches
+ * and for the spirit of FIRST to fill us 
+ * with Gracious Professionalism(TM) and Coopertition(TM).
+ * 
+ * We pray to the Robonauts, Cheesy Poofs, Highrollers,
+ * Simbotics, Beach Bots, and Robowranglers
+ * for the strength of vision tracking.
+ * May we always find our targets.
+ * 
+ * We again pray to the aforementioned teams,
+ * for the strength of our robot as a whole.
+ * May our systems work without fail
+ * no matter if they include hardware or software.
+ * 
+ * We pray to the control systems, and National Instruments,
+ * for if we do not appease them we shall fail,
+ * as the RoboRio may not continue to work.
+ * Please have mercy.
+ * 
+ * We pray to the Robot Inspectors and the scale
+ * as our robot is quite fat and needs a diet.
+ * By the weight sensor may we succeed
+ * so that we may compete for another day.
+ * 
+ * We pray to the FTA,
+ * so that we may ensure swift connections
+ * and accurate cameras for our drivers.
+ * You know they need them!
+ * 
+ * And finally, we pray to the power of memes,
+ * for without memes we would not have made it through this year.
+ * In the words of Professor Elemental:
+ * "STEAM POWERED STEAM POWERED STEAM POWERED."
+ * 
+ * In the name of our founder,
+ * we now say
+ * Kamen.
+ */
 
 package org.usfirst.frc.team2642.robot;
 
 import edu.wpi.cscore.MjpegServer;
 import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.VideoMode;
 import edu.wpi.cscore.VideoSink;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -69,6 +112,10 @@ public class Robot extends IterativeRobot {
 		//Camera FPS
 		cameraBoiler.setFPS(10);
 		cameraGear.setFPS(10);
+		
+//		cameraBoiler.setPixelFormat(VideoMode.PixelFormat.kMJPEG);
+//		cameraGear.setPixelFormat(VideoMode.PixelFormat.kMJPEG);
+		
 		
 		//Turns off vision by default
 		setCameraBoilerVision(false);
@@ -209,6 +256,8 @@ public class Robot extends IterativeRobot {
 		setCameraBoilerVision(false);
 		setCameraGearVision(false);
 		driveTrain.resetGyro();
+		
+		
 	}
 
 	/**

@@ -36,11 +36,14 @@ public class ArcadeDrive extends Command {
 	    	}
     	}
     	else{
-    		//High speed gear in front
-	    	if(OI.getxBox().getRawAxis(2) > 0.6){
+    		//Overdrive
+	    	if(OI.getxBox().getRawAxis(3) > 0.6){
+	    		Robot.driveTrain.drive(OI.getxBox().getY(Hand.kLeft) * 1.1, OI.getxBox().getX(Hand.kLeft) * 1.1);
+	    	//Fast Speed
+	    	}else if(OI.getxBox().getRawAxis(2) > 0.6){
 	        	Robot.driveTrain.drive(OI.getxBox().getY(Hand.kLeft) * 1.1, OI.getxBox().getX(Hand.kLeft) * 0.8);
 	    	}else{
-    		//Low speed gear in front
+    		//Low speed
 	    		Robot.driveTrain.drive(OI.getxBox().getY(Hand.kLeft) * 0.6, OI.getxBox().getX(Hand.kLeft) * 0.8);
 	    	}
     	}

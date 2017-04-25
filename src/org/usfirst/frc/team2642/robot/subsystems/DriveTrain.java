@@ -40,7 +40,7 @@ public class DriveTrain extends PIDSubsystem {
 	}
 
 	public double getGyro() {
-		return gyro.getAngle();
+		return gyro.getAngle() % 360.0;
 	}
 
 	public void resetGyro() {
